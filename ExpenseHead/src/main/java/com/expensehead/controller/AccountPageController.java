@@ -5,11 +5,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.expensehead.form.LoginForm;
+
 @Controller
 public class AccountPageController {
 
 	@RequestMapping(value={"/welcome","/"},method=RequestMethod.GET)
-	public String doLogin(Model model){
+	public String getHomePage(Model model){
+		model.addAttribute("loginForm", new LoginForm());
 		return "login";
 	}
+	
+	@RequestMapping(value={"/login"},method=RequestMethod.POST)
+	public String login(Model model){
+		return "admin";
+	}
+	
 }

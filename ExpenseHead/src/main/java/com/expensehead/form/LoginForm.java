@@ -2,7 +2,7 @@ package com.expensehead.form;
 
 public class LoginForm {
 	String groupId;
-	String name;
+	String userName;
 	String password;
 
 	public String getGroupId() {
@@ -14,11 +14,11 @@ public class LoginForm {
 	}
 
 	public String getName() {
-		return name;
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
