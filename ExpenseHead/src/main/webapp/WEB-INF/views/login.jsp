@@ -7,14 +7,14 @@
 			content="text/html; charset=ISO-8859-1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="../css/login.css">
-		<script src="../js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/login.css">
+		<script src="resources/js/bootstrap.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 		<title>Login Page</title>
 	</head>
-		<body class="pattern pattern4">
+		<body class="pattern pattern5">
 			<div class="navbar navbar-inverse navbar-static">
 				<div class="container">
 						 <b class="navbar-brand" style="color: white;">SplitEasy</b>
@@ -101,6 +101,6 @@
 			</div>
 		</table>
 		</form>
-		<script src="../js/register.js"></script>
+		<script src="resources/js/register.js"></script>
 	</body>
 </html>
