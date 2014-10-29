@@ -18,7 +18,7 @@ import org.hibernate.annotations.CascadeType;
 public class User {
 	@Id
 	@GeneratedValue
-	@Column(name="userId")
+	@Column(name="user_id")
 	String userId;
 	
 	@ManyToOne
@@ -26,10 +26,10 @@ public class User {
 	@JoinColumn(name="groupId")
 	Group group;
 	
-	@Column(name="userName")
+	@Column(name="user_name")
 	String userName;
 	
-	@Column(name="emailId")
+	@Column(name="email_id")
 	String emailId;
 	
 	@Column(name="contactNo")
