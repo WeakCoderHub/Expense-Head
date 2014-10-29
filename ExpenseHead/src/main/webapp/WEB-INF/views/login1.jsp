@@ -1,54 +1,111 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" /> 
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
 <link rel="ICON" href="resources/images/titlelogo.png" type="image/ico/">
-<title>Expense Head</title>
+
+<link rel="stylesheet" type="text/css"
+	href="resources/css/sliding/demo.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/css/sliding/jPushMenu.css" />
+
+<link href="resources/css/carousel/js-image-slider.css" rel="stylesheet"
+	type="text/css" />
+<script src="resources/js/carousel/js-image-slider.js"
+	type="text/javascript"></script>
+
+<script src="resources/js/sliding/jquery-1.9.1.min.js"></script>
+<script src="resources/js/sliding/jPushMenu.js"></script>
+<!--call jPushMenu, required-->
+<script>
+	jQuery(document).ready(function($) {
+		$('.toggle-menu').jPushMenu();
+	});
+</script>
 </head>
+<title>Expense Head</title>
+
+
 <body>
-		<div id="header">   
-				<label class="headcolor"></label>
-				<button id="Register" class="CC">Register</button>
-				<button id="AboutUs" class="CC">About Us</button>
-		</div>	
-		
-   		<div id="container"> 
-			<div id="logo" class="right"> <img id="logo" src="resources/images/FLOGO1.PNG"/> </div>
+
+
+	<div id="header">
+		<div id="logo">
+			<img id="logo" src="resources/images/logo.PNG" />
+		</div>
+		<label id="Register" class="toggle-menu menu-right push-body CC"><b>Register</b></label>
+		<label id="AboutUs" class="CC"><b>About Us</b></label>
+
+	</div>
+
+
+	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
+		<!-- 		registration code here -->
+	</nav>
+
+	<div style="height: 48em;">
+		<div id="container">
 			<div id="leftContainer">
+
+
 				<div id="sliderFrame">
 					<div id="slider">
-						<img src="resources/images/image-slider-1.jpg" alt="Welcome to Weakcoder.com" />
-					</div>	
-				</div>	
+						<img src="resources/images/carousel/image-slider-1.jpg" /> <img
+							src="resources/images/carousel/image-slider-2.jpg" /> <img
+							src="resources/images/carousel/image-slider-3.jpg" /> <img
+							src="resources/images/carousel/image-slider-4.jpg" />
+					</div>
+				</div>
 			</div>
+
 			<div id="rightContainer">
 				<button id="loginbutton" class="CC">Login</button>
-				
+
 				<div id="justify">
-					<br /><br />
-					<form action="" method="post" >
-						<label class="CC">Group ID</label><br /><input type="text" id="gid" class="input" required/><br /><br/>
-						<label class="CC">User ID </label><br /><select name="mytextarea" class="input">
-							<option  value="zero">  </option>
-							<option name="one" value="one"> one </option>
-							<option name="two" value="two"> two </option>
-							<option name="three" value="three"> three </option>
-							</select><br /><br/>
-						<label class="CC">Password</label><br /><input type="password" id="password"  class="input" required/><br/><br/>
-						<input id="sbutton" type="submit" value="submit" />
-					</form>
-				    <a href="#"> forget password</a>
+					<br /> <br />
+
+					<form:form method="post" modelAttribute="loginForm" action="login">
+						<table>
+							<tr>
+								<td>Group Name :</td>
+								<td><form:input id="groupid" path="groupId" /></td>
+								<td><form:errors path="groupId" cssClass="error" /></td>
+							</tr>
+							<tr>
+								<td>User Name :</td>
+								<td><form:select id="userNames" path="userName">
+										<form:option value="">Select User</form:option>
+									</form:select></td>
+								<td><form:errors path="userName" cssClass="error" /></td>
+							</tr>
+							<tr>
+								<td>Password :</td>
+								<td><form:password path="password" /></td>
+								<td><form:errors path="password" cssClass="error" /></td>
+							</tr>
+							<tr>
+								<td><a href="#"> forget password</a></td>
+								<td><input type="submit" value="Save" />&nbsp;&nbsp;&nbsp;<input
+									type="reset" value="Cancel" /></td>
+							</tr>
+						</table>
+					</form:form>
 				</div>
-				
+
 			</div>
-			
-			
-		</div> 
-		<div id="footer">@Copyright</div>   
-		
+		</div>
+
+	</div>
+
+	<div id="footer">
+		@Copyright<br>
+		<h3>Contact us : weakcoder@gmail.com</h3>
+	</div>
+
 </body>
 
 </html>
