@@ -278,5 +278,7 @@ background-color: #FFFFFF;
     width:35%;
     }
 
-
+iframe{
+overflow:hidden;
+}
 

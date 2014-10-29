@@ -33,17 +33,17 @@ public class AccountPageController {
 	@RequestMapping(value={"/welcome","/"},method=RequestMethod.GET)
 	public String getHomePage(Model model){
 		model.addAttribute("loginForm", new LoginForm());
-		return "addfine";
+		return "login1";
 	}
 	
 	
-	@ResponseBody
+/*	@ResponseBody
 	@RequestMapping(value={"/getUsers"},method=RequestMethod.GET, produces="application/json")
 	public Set<String> getUsers(@RequestParam("groupName") String groupName){
 		Set<String> users = new HashSet<String>();
 		users = groupService.getUsers(groupName);
 		return users;
-	}
+	}*/
 	
 	@ResponseBody
 	@RequestMapping(value={"/getUserList"},method=RequestMethod.GET, produces="application/json")
