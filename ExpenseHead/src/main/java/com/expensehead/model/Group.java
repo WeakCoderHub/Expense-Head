@@ -19,22 +19,22 @@ public class Group {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "groupId")
+	@Column(name = "group_id")
 	String groupId;
 
-	@Column(name = "groupName")
+	@Column(name = "group_name")
 	String groupName;
 
-	@Column(name = "totalMembers")
+	@Column(name = "total_members")
 	int noOfMembers;
 
-	@Column(name = "address")
+	@Column(name = "group_address")
 	String address;
 
-	@Column(name = "helpLine1")
+	@Column(name = "group_helpLine1")
 	String helpLine1;
 
-	@Column(name = "helpLine2")
+	@Column(name = "group_helpLine2")
 	String helpLine2;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
