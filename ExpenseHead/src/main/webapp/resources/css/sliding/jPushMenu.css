@@ -1,6 +1,21 @@
+
+.minus-sign{
+	background: url("../../images/min.PNG");
+	width: 25px;
+	height: 25px;
+}
+
+.text-label{
+	font-family: Century Gothic !important;
+}
+
+#addMembersDetails button:HOVER{
+	background-color:;
+}
+
 /* General styles for all menus */
 .cbp-spmenu {
-	background: #47a3da;
+/* 	background: #47a3da; */
 	position: fixed;
 }
 
