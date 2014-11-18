@@ -14,29 +14,28 @@ import org.hibernate.annotations.CascadeType;
 
 
 @Entity
-@Table(name="user_details")
+@Table(name="user",catalog="expenseheaddb")
 public class User {
 	@Id
-	@GeneratedValue
-	@Column(name="user_id")
-	String userId;
+	@Column(name="userId")
+	private String userId;
 	
 	@ManyToOne
 	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="groupId")
-	Group group;
+	private Group group;
 	
-	@Column(name="user_name")
-	String userName;
+	@Column(name="userName")
+	private String userName;
 	
-	@Column(name="email_id")
-	String emailId;
+	@Column(name="emailId")
+	private String emailId;
 	
 	@Column(name="contactNo")
-	String contactNo;
+	private String contactNo;
 	
 	@Column(name="userType")
-	char userType;
+	private char userType;
 	
 	
 	public String getUserId() {

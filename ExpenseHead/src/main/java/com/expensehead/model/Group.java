@@ -14,32 +14,31 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name = "group_details")
+@Table(name = "group",catalog="expenseheaddb")
 public class Group {
 
 	@Id
-	@GeneratedValue
-	@Column(name = "group_id")
-	String groupId;
+	@Column(name = "groupId")
+	private String groupId;
 
-	@Column(name = "group_name")
-	String groupName;
+	@Column(name = "groupName")
+	private String groupName;
 
-	@Column(name = "total_members")
-	int noOfMembers;
+	@Column(name = "noOfMembers")
+	private int noOfMembers;
 
-	@Column(name = "group_address")
-	String address;
+	@Column(name = "address")
+	private String address;
 
-	@Column(name = "group_helpLine1")
-	String helpLine1;
+	@Column(name = "helpLine1")
+	private String helpLine1;
 
-	@Column(name = "group_helpLine2")
-	String helpLine2;
+	@Column(name = "helpLine2")
+	private String helpLine2;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
 	@Cascade(CascadeType.ALL)
-	List<User> users;
+	private List<User> users;
 
 	public String getGroupId() {
 		return groupId;

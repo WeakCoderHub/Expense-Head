@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.expensehead.dao.GroupDao;
 import com.expensehead.model.Group;
+import com.expensehead.model.Test;
 import com.expensehead.model.User;
 
 @Repository
@@ -39,15 +40,30 @@ public class GroupDaoImpl implements GroupDao {
 		Query q = session.createQuery("from Group where groupName='"+groupName+"'");
 		List<Group> group =(List<Group>) q.list() ;
 		Group g = group.get(0);
-		List<User> users =  g.getUsers(); 
-	        return users;			
+	System.out.println(g.getGroupId());	
+	System.out.println(g.getUsers());
+		
+	List<User> users =  g.getUsers(); 
+		for(User user:users){
+			System.out.println(user.getUserName());
+		}
+	    return users;			
       
 	}
 
 	@Override
 	public int insertGroup(Group g) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(g);
+		try{
+//		Test test=new Test();
+//		test.setId("b");
+//		session.save(test);
+		
+     	session.save(g);
+		}catch(Exception e){
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 		return 0;
 	}
 	
@@ -60,6 +76,7 @@ public class GroupDaoImpl implements GroupDao {
 	@Override
 	public Set<String> fetchUsers(String groupId) {
 		Set<String> users = new HashSet<String>();
+		System.out.println("dummy user list");
 		users.add("Ankit");
 		users.add("Arun");
 		users.add("Jitu");

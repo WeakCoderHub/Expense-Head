@@ -7,5 +7,6 @@
 	<session-factory>
 		<mapping class="com.expensehead.model.Group" />
 		<mapping class="com.expensehead.model.User" />
+		<mapping class="com.expensehead.model.Test"/>
 	</session-factory>
 </hibernate-configuration>

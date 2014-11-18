@@ -9,7 +9,7 @@
 <link rel="ICON" href="resources/images/titlelogo.png" type="image/ico/">
 
 <link rel="stylesheet" type="text/css"
-	href="resources/css/sliding/demo.css" />
+	href="../../resources/css/sliding/demo.css" />
 <link rel="stylesheet" type="text/css"
 	href="resources/css/sliding/jPushMenu.css" />
 
@@ -20,6 +20,8 @@
 
 <script src="resources/js/sliding/jquery-1.9.1.min.js"></script>
 <script src="resources/js/sliding/jPushMenu.js"></script>
+
+<script src="resources/js/ajax.js"></script>
 <!--call jPushMenu, required-->
 <script>
 	jQuery(document).ready(function($) {
@@ -45,6 +47,7 @@
 
 	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
 		<!-- 		registration code here -->
+		<jsp:include page="register_group.jsp"></jsp:include>
 	</nav>
 
 	<div style="height: 48em;">
@@ -71,25 +74,28 @@
 					<form:form method="post" modelAttribute="loginForm" action="login">
 						<table>
 							<tr>
-								<td>Group Name :</td>
-								<td><form:input id="groupid" path="groupId" /></td>
-								<td><form:errors path="groupId" cssClass="error" /></td>
+								<td align="center" width="200">Group Name :</td>
+								<td align="left"><form:input id="groupid" path="groupId" /></td>
+								<td align="left" width="400"><form:errors path="groupId"
+										cssClass="error" /></td>
 							</tr>
 							<tr>
-								<td>User Name :</td>
-								<td><form:select id="userNames" path="userName">
+								<td align="center" width="200px">User Name :</td>
+								<td align="left"><form:select id="userNames"
+										path="userName">
 										<form:option value="">Select User</form:option>
 									</form:select></td>
 								<td><form:errors path="userName" cssClass="error" /></td>
 							</tr>
 							<tr>
-								<td>Password :</td>
-								<td><form:password path="password" /></td>
-								<td><form:errors path="password" cssClass="error" /></td>
+								<td align="center" width="200">Password :</td>
+								<td align="left"><form:password path="password" /></td>
+								<td align="left" width="400">
+								<form:errors path="password" cssClass="error" /></td>
 							</tr>
 							<tr>
-								<td><a href="#"> forget password</a></td>
-								<td><input type="submit" value="Save" />&nbsp;&nbsp;&nbsp;<input
+								<td></td>
+								<td align="left"><input type="submit" value="Save" />&nbsp;&nbsp;&nbsp;<input
 									type="reset" value="Cancel" /></td>
 							</tr>
 						</table>
