@@ -1,7 +1,4 @@
 package com.expensehead.controller;
-
-
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -48,25 +45,25 @@ public class AccountPageController {
 	@ResponseBody
 	@RequestMapping(value={"/getUserList"},method=RequestMethod.GET, produces="application/json")
 	public Set<String> getUserList(@RequestParam("groupName") String groupName){
-/*		Group g = new Group();
-		g.setGroupId("1");
-		g.setGroupName("Banana");
+		Group g = new Group();
+		g.setGroupId("100");
+		g.setGroupName("gurgaon");
 		g.setNoOfMembers(2);
 		User u1 = new User();
 		User u2 = new User();
 		List<User> user = new ArrayList<User>();
-		u1.setUserId("anki");
+		u1.setUserId("200");
 		 u1.setUserName("ankit");
 		u1.setEmailId("ankit010ankit@gmail.com");
 		
-		u2.setUserId("aru");
+		u2.setUserId("201");
 		u2.setUserName("arun");
 		u2.setEmailId("arun@gmail.com");
 		user.add(u1);
 		user.add(u2);
 		g.setUsers(user);
 		groupService.createGroup(g);
-*/		
+		
 		Set<String> users=groupService.getUsersList(groupName);
 		System.out.println(users);
 		return users;
