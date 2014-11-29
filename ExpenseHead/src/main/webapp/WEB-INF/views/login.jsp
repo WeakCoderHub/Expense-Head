@@ -22,6 +22,7 @@
 <script src="resources/js/sliding/jPushMenu.js"></script>
 
 <script src="resources/js/ajax.js"></script>
+<script src="resources/js/register.js"></script>
 <!--call jPushMenu, required-->
 <script>
 	jQuery(document).ready(function($) {
