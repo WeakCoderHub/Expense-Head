@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.support.RegistrationPolicy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.expensehead.form.LoginForm;
+import com.expensehead.form.RegisterForm;
 import com.expensehead.form.RegisterationForm;
 import com.expensehead.service.GroupService;
 
@@ -48,5 +50,11 @@ RegisterationForm registerationForm1=new RegisterationForm();
 		
 		model.addAttribute("loginForm", new LoginForm());
 		return "login";
+	}
+	
+	@RequestMapping(value={"/createGroup"},method=RequestMethod.POST)
+	public String createGroup(@RequestBody final RegisterForm registerForm)
+	{
+		return "success";
 	}
 }
