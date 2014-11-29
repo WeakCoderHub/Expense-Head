@@ -33,7 +33,7 @@ public class AccountPageController {
 	@RequestMapping(value={"/welcome","/"},method=RequestMethod.GET)
 	public String getHomePage(Model model){
 		model.addAttribute("loginForm", new LoginForm());
-		return "login1";
+		return "login";
 	}
 	
 	
