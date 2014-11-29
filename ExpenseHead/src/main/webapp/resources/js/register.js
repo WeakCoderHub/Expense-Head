@@ -1,6 +1,6 @@
   $(document).ready(function(){
 	  
-$("#pendingRequestTitle").click(function()
+/*$("#pendingRequestTitle").click(function()
 	{
 	$("#pendingRequests").slideToggle();
 		
@@ -40,11 +40,11 @@ $("#myContributionExpenses").click(function()
 		{
 		$("#userExpenseDetails").slideToggle();
 			
-		});
-
+		}); 
+*/
 $("#addMember").click(function(){
 	var i=($('#memberDetailBody').children().length)+1;
-		var rows ='<tr><td class="white-Large-Label">'+i+'.</td><td><input type="text" class="form-control" id="memberName'+i+'" placeholder="Enter Name"></td><td><input type="text" class="form-control" id="memberEmailId'+i+'"	placeholder="Enter Email ID"></td><td><input type="text" class="form-control" id="contactNo'+i+'"	placeholder="Enter Contact No."></td><td style="padding-top: 1.1em; padding-left: 0.8em"><input type="radio" name="isAdmin" style="transform: scale(2);"></td> <td><button type="button" onclick="deleteRow(this)" class="btn btn-danger btn-sm deleteMember"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';    		  
+	var rows ='<tr><td>'+i+'.</td><td><input type="text" class="input-box" id="memberName'+i+'" placeholder="Enter Name"></td><td><input type="text" class="input-box" id="memberEmailId'+i+'"	placeholder="Enter Email ID"></td><td><input type="text" class="input-box" id="contactNo'+i+'"	placeholder="Enter Contact No."></td><td><input type="radio" class="css-checkbox" name="isAdmin" id="radio'+i+'"><label for="radio'+i+'"class="css-label"></label></td> <td><a href="#" onclick="deleteRow(this)"><div class="minus-sign"></div></a></td></tr>';    		  
 		$(rows).appendTo('#memberDetailBody');   
 });
 
@@ -71,6 +71,34 @@ $("#addMember").click(function(){
 //    }
 //}
 
+$("#createMyGroup").click(function(){
+	
+	  var request = {};
+	  request["groupName"] = $("#groupname").val();
+	  request["address"] = $("#address").val();
+	  request["listOfMembers"] = [];
+	  $('#membersTable tr').each(function(){
+		  var data = $(this).eq(0).children('td');
+		  var user = {};
+		 	user["userName"] = data.eq(1).children('input').val();
+		 	user["emailId"] = data.eq(2).children('input').val();
+		 	user["contactNo"] = data.eq(3).children('input').val();
+		 	user["isAdmin"] = data.eq(4).children('input').prop("checked");
+		 	request.listOfMembers.push(user);     
+	  });
+	  var jsonRequest = JSON.stringify(request);
+	  $.ajax({
+			type: "GET",
+          url: "createGroup",
+          type: "POST",
+          data: jsonRequest,
+          dataType: "json",
+          contentType: "application/json",
+		      success: function(data) {alert("success");}
+		});
+	  
+	  
+		});
 
 
 
@@ -79,10 +107,14 @@ $("#addMember").click(function(){
   function deleteRow(row){
 		 
 		$(row).parent().parent().remove();
-		
+		$('#membersTable tr').each(function(){
+			  
+		  });
 		  
 	}
 
+ 
+  
 
  /* $("#noofmembers").change(function(){
   
