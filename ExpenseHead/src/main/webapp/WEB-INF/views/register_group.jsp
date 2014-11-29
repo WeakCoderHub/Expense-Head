@@ -16,7 +16,7 @@
 					placeholder="Enter Address"></td>
 			</tr>
 		</table>
-		<table align="center" width="50%" style="margin-top: 2em;">
+		<table  align="center" width="50%" style="margin-top: 2em;">
 
 
 
@@ -24,7 +24,7 @@
 				<td>
 					<div id="addMembersDetails">
 
-						<table align="center">
+						<table id="membersTable" align="center">
 
 							<tbody id="memberDetailBody">
 								<tr>
@@ -44,7 +44,7 @@
 								</tr>
 
 								<tr>
-									<td class="white-Large-Label">2.</td>
+									<td>2.</td>
 									<td><input type="text" class="input-box" id="memberName2"
 										placeholder="Enter Name"></td>
 									<td><input type="text" class="input-box"
@@ -53,7 +53,7 @@
 										placeholder="Enter Contact No."></td>
 
 									<td><input type="radio" class="css-checkbox" id="radio2"
-										name="isAdmin" checked="checked"> <label for="radio2"
+										name="isAdmin" > <label for="radio2"
 										class="css-label"></label></td>
 
 									<td><a href="#" onclick="deleteRow(this)">
@@ -78,7 +78,7 @@
 			<tr>
 				<td><br>
 				<br>
-					<button type="submit" class="register-button"
+					<button id="createMyGroup" type="button" class="register-button"
 						style="width: 40%; height: 50px;">Create My Group</button></td>
 			</tr>
 
