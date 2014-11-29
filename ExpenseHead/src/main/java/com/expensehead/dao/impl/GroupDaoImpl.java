@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.expensehead.dao.GroupDao;
 import com.expensehead.model.Group;
-import com.expensehead.model.Test;
 import com.expensehead.model.User;
 
 @Repository
@@ -82,6 +81,14 @@ public class GroupDaoImpl implements GroupDao {
 		users.add("Jitu");
 		users.add("Rohit");
 		return users;
+	}
+
+	@Override
+	public int RegisterGroup(Group group) {
+		
+		Session session=this.sessionFactory.getCurrentSession();
+		session.save(group);
+		return 0;
 	}
 	
 }

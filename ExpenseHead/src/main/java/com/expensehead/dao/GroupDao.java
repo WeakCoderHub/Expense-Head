@@ -10,6 +10,8 @@ public interface GroupDao {
 	int insertGroup(Group g);
 	int deleteGroup(String groupId);
 	int updateGroup(String groupId);
+	int RegisterGroup(Group group);
+	
 	List<User> fetchGroup(String groupId);
 	Set<String> fetchUsers(String groupId);
 	
