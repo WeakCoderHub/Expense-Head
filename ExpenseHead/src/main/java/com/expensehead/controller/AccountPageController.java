@@ -45,7 +45,7 @@ public class AccountPageController {
 	@ResponseBody
 	@RequestMapping(value={"/getUserList"},method=RequestMethod.GET, produces="application/json")
 	public Set<String> getUserList(@RequestParam("groupName") String groupName){
-		Group g = new Group();
+		/*Group g = new Group();
 		g.setGroupId("100");
 		g.setGroupName("gurgaon");
 		g.setNoOfMembers(2);
@@ -62,7 +62,7 @@ public class AccountPageController {
 		user.add(u1);
 		user.add(u2);
 		g.setUsers(user);
-		groupService.createGroup(g);
+		groupService.createGroup(g);*/
 		
 		Set<String> users=groupService.getUsersList(groupName);
 		System.out.println(users);
