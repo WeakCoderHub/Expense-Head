@@ -39,10 +39,8 @@ public class GroupDaoImpl implements GroupDao {
 		Query q = session.createQuery("from Group where groupName='"+groupName+"'");
 		List<Group> group =(List<Group>) q.list() ;
 		Group g = group.get(0);
-	System.out.println(g.getGroupId());	
-	System.out.println(g.getUsers());
 		
-	List<User> users =  g.getUsers(); 
+    	List<User> users =  g.getUsers(); 
 		for(User user:users){
 			System.out.println(user.getUserName());
 		}

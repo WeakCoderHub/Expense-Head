@@ -42,7 +42,7 @@ public class Group {
 	@Column(name = "helpLine2")
 	private String helpLine2;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "group")
 	@Cascade(CascadeType.ALL)
 	private List<User> users;
 

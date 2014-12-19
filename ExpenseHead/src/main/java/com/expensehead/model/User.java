@@ -23,8 +23,8 @@ public class User {
 	private String userId;
 
 	@ManyToOne
-	@Cascade(CascadeType.ALL)
-	@JoinColumn(name = "groupId")
+	/*@Cascade(CascadeType.ALL)*/
+	@JoinColumn(name = "groupName")
 	private Group group;
 
 	@Column(name = "userName")

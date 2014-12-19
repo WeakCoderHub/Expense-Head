@@ -1,12 +1,9 @@
 package com.expensehead.service;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import com.expensehead.form.RegisterationForm;
+import com.expensehead.form.RegisterForm;
 import com.expensehead.model.Group;
-import com.expensehead.model.User;
 
 public interface GroupService {
 	int createGroup(Group g);
@@ -15,6 +12,6 @@ public interface GroupService {
 	Set<String> getUsers(String groupId);
 	Set<String> getUsersList(String groupName);
 	
-	int registration(List<RegisterationForm> list);
+	int registration(RegisterForm form);
 	
 }

@@ -87,16 +87,23 @@ $("#createMyGroup").click(function(){
 		 	request.listOfMembers.push(user);     
 	  });
 	  var jsonRequest = JSON.stringify(request);
+	  alert("calling controller");
 	  $.ajax({
-			type: "GET",
           url: "createGroup",
           type: "POST",
           data: jsonRequest,
           dataType: "json",
           contentType: "application/json",
-		      success: function(data) {alert("success");}
-		});
-	  
+          error : function(data){
+			  alert(error);
+		  },
+          	success: function(data)  { 
+          		window.location.href=data.forwardUrl;
+		  },
+		  failure  : function(data){
+			
+		  }
+		  
 	  
 		});
 
@@ -107,12 +114,9 @@ $("#createMyGroup").click(function(){
   function deleteRow(row){
 		 
 		$(row).parent().parent().remove();
-		$('#membersTable tr').each(function(){
-			  
-		  });
 		  
-	}
-
+	};
+  });
  
   
 
