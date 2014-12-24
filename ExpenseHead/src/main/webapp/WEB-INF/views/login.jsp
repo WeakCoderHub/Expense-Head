@@ -95,7 +95,7 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td align="left"><input type="submit" value="Save" />&nbsp;&nbsp;&nbsp;<input
+								<td align="left"><input type="submit" value="Login" />&nbsp;&nbsp;&nbsp;<input
 									type="reset" value="Cancel" /></td>
 							</tr>
 						</table>

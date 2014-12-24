@@ -1,8 +1,5 @@
 package com.expensehead.controller;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -15,17 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.expensehead.form.LoginForm;
-import com.expensehead.model.Group;
-import com.expensehead.model.User;
 import com.expensehead.service.GroupService;
+import com.expensehead.service.LoginService;
 
 @Controller
 public class AccountPageController {
 
 	@Autowired
 	private GroupService groupService;
+	
+	@Autowired
+	private LoginService loginService;
 	
 	@RequestMapping(value={"/welcome","/"},method=RequestMethod.GET)
 	public String getHomePage(Model model){
@@ -71,13 +71,17 @@ public class AccountPageController {
 	
 	@RequestMapping(value={"/login"},method=RequestMethod.POST)
 	public String login(@Valid LoginForm loginForm,
-            BindingResult bindingResult,Model model){
+            BindingResult bindingResult,Model model,final RedirectAttributes redirectModel){
 		
-		if (bindingResult.hasErrors()) {
-            return "addfine";
-        }
-		
-		return "admin";
+		int result = loginService.loginUser(loginForm);
+		if(result == 0){
+			
+			return "redirect:/welcome";
+		}else if(result == 1){
+		return "/dashboard/pages/dashboard";}
+		else{
+			return "/dashboard/pages/dashboard";
+		}
 	}
 	
 }
