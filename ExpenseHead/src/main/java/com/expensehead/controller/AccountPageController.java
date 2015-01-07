@@ -2,6 +2,7 @@ package com.expensehead.controller;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,22 +66,23 @@ public class AccountPageController {
 		groupService.createGroup(g);*/
 		
 		Set<String> users=groupService.getUsersList(groupName);
-		System.out.println(users);
 		return users;
 	}
 	
 	@RequestMapping(value={"/login"},method=RequestMethod.POST)
 	public String login(@Valid LoginForm loginForm,
-            BindingResult bindingResult,Model model,final RedirectAttributes redirectModel){
+            BindingResult bindingResult,Model model,final RedirectAttributes redirectModel,HttpServletRequest request){
 		
-		int result = loginService.loginUser(loginForm);
+		int result = loginService.loginUser(loginForm,request);
 		if(result == 0){
 			
 			return "redirect:/welcome";
 		}else if(result == 1){
-		return "/dashboard/pages/dashboard";}
+		   request.getSession().setAttribute("username",loginForm.getUserName());	
+		   
+		return "redirect:/dashBoard";}
 		else{
-			return "/dashboard/pages/dashboard";
+			return "redirect:/dashBoard";
 		}
 	}
 	

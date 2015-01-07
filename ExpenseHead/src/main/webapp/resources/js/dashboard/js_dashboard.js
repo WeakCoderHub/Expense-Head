@@ -6,6 +6,7 @@
 	 
 	 
 	 jQuery(".popupopen").click(function() {
+		 
 		  box = jQuery(this).attr('rel');
 		  jQuery('#'+box).show();
 		  
@@ -64,13 +65,19 @@
 			});
 			
 			$("#popupBackground").css({
-				"height": windowHeight
+				"height": windowHeight,
+				"width": windowWidth
 			});
 		}
 		
 		$(".popupClick").click(function()
 		{
+			//$('#popupBackground').show();
+			//$("#popupForm").show();
 //			$("#popupForm").append("Got it");
+			if($("#forPopupUse").val() == "true"){
+				popupStatus = 0;
+			}
 			centrePopup();
 			loadPopup();
 		});

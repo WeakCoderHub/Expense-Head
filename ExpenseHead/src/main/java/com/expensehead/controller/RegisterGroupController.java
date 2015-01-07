@@ -3,7 +3,8 @@ package com.expensehead.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.omg.CORBA.Request;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,19 +24,28 @@ public class RegisterGroupController {
 
 	@ResponseBody
 	@RequestMapping(value = { "/createGroup" })
-	public Map<String,String> createGroup(@RequestBody final RegisterForm registerForm, Model model) {
-		groupService.registration(registerForm);
-		Map<String,String> response = new HashMap<String,String>();
+	public Map<String, String> createGroup(
+			@RequestBody final RegisterForm registerForm, Model model,
+			HttpServletRequest request) {
+		int groupId = groupService.registration(registerForm);
+		Map<String, String> response = new HashMap<String, String>();
 		response.put("forwardUrl", "dashBoard");
+		request.getSession().setAttribute("groupname",
+				registerForm.getGroupName());
+		request.getSession().setAttribute("groupId", groupId);
 		return response;
-	
+
 	}
-	
-	@RequestMapping(value = { "/dashBoard" },method = RequestMethod.GET)
-	public String viewDashBoard() {
+
+	@RequestMapping(value = { "/dashBoard" }, method = RequestMethod.GET)
+	public String viewDashBoard(Model model, HttpServletRequest request) {
+
+		model.addAttribute(
+				"currentAmount",
+				groupService.getRemainingAmount(request.getSession()
+						.getAttribute("groupId").toString()));
 		return "/dashboard/pages/dashboard";
-	
+
 	}
-	
-	
+
 }

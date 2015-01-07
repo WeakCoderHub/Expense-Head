@@ -87,7 +87,6 @@ $("#createMyGroup").click(function(){
 		 	request.listOfMembers.push(user);     
 	  });
 	  var jsonRequest = JSON.stringify(request);
-	  alert("calling controller");
 	  $.ajax({
           url: "createGroup",
           type: "POST",

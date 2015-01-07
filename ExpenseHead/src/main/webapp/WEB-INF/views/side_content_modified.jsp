@@ -37,7 +37,7 @@
     </tr>
     <tr id="expenseDetails" style="display:none;">
      <td>
-     <jsp:include page="expense_detail.jsp"></jsp:include>
+<%--      <jsp:include page="expense_detail.jsp"></jsp:include> --%>
      </td>
      </tr>
     <tr>
@@ -55,7 +55,7 @@
 </tr>
 <tr id="userExpenseDetails" style="display:none;">
      <td>
-     <jsp:include page="expense_detail.jsp"></jsp:include>
+<%--      <jsp:include page="expense_detail.jsp"></jsp:include> --%>
      </td>
      </tr>
 

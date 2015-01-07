@@ -13,5 +13,5 @@ public interface GroupService {
 	public Set<String> getUsersList(String groupName);
 	
 	public int registration(RegisterForm form);
-	
+	public long getRemainingAmount(String groupId);
 }

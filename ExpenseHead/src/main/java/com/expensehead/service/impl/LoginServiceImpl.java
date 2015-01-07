@@ -1,5 +1,7 @@
 package com.expensehead.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,13 +19,17 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Override
 	@Transactional
-	public int loginUser(LoginForm loginForm){
+	public int loginUser(LoginForm loginForm,HttpServletRequest request){
 	    User user = userDao.isUser(loginForm.getUserName(),loginForm.getPassword());
 		if(null == user){
 			return 0 ;
 		}else if(user.getUserType() == 't'){
+			request.getSession().setAttribute("groupId",user.getGroup().getGroupId());
+			request.getSession().setAttribute("userId", user.getUserId());
 			return 2 ;
 		}else {
+			request.getSession().setAttribute("groupId",user.getGroup().getGroupId());
+			request.getSession().setAttribute("userId", user.getUserId());
 			return 1 ;
 		}
 	  

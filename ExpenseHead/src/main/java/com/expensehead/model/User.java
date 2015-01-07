@@ -9,21 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
 @Table(name = "user", catalog = "expenseheaddb")
 public class User {
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
-	
-	@Column(name = "userId",length=255)
-	private String userId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "userId")
+	private int userId;
 
 	@ManyToOne
-	/*@Cascade(CascadeType.ALL)*/
 	@JoinColumn(name = "groupName")
 	private Group group;
 
@@ -42,6 +36,28 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "payable")
+	private int payable;
+
+	@Column(name = "payback")
+	private int payback;
+
+	public int getPayable() {
+		return payable;
+	}
+
+	public void setPayable(int payable) {
+		this.payable = payable;
+	}
+
+	public int getPayback() {
+		return payback;
+	}
+
+	public void setPayback(int payback) {
+		this.payback = payback;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -54,11 +70,11 @@ public class User {
 		this.contactNo = contactNo;
 	}
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
@@ -89,8 +105,6 @@ public class User {
 	public String getContactNo() {
 		return contactNo;
 	}
-
-	
 
 	public char getUserType() {
 		return userType;
