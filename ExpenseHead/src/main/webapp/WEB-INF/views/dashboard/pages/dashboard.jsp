@@ -1,33 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="dash" tagdir="/WEB-INF/tags/dashboard"%>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Dashboard</title>
+	</head>
 
-<!DOCTYPE html >
-<html>
-<head>
-<link href="resources/css/dashboard/css_dashboard.css" rel="stylesheet"
-	type="text/css" />
 
-</head>
+	<style type="text/css">
+.modal-backdrop {
+	top: 5.5% !important;
+	left: 18% !important;
+	right: 18% !important;
+}
+</style>
 
-<body style="margin: 0px !important; height: 100%; width: 100%;">
-	<dash:header />
-	<dash:addExpense />
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet">
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
 
-	<div>
-		<div style="float: left;">arun garg ....</div>
+	<body>
+		<div>
+			<jsp:include page="/WEB-INF/views/dashboard/components/header.jsp"></jsp:include>
+			<jsp:include page="/WEB-INF/views/dashboard/components/addExpenseModal.jsp"></jsp:include>
+			<jsp:include page="/WEB-INF/views/dashboard/components/addContribution.jsp"></jsp:include>
 
-		<div style="float: left; width: 80% !important;" id='popupBackground'></div>
-
-		<div style="float: right;">
-			<dash:leftSection balance="${currentAmount}" />
 		</div>
-	</div>
 
-</body>
-<script src="resources/js/sliding/jquery-1.9.1.min.js"></script>
-<script src="resources/js/ajax.js"></script>
-<script type="text/javascript"
-	src="resources/js/dashboard/js_dashboard.js"></script>
+
+	</body>
 </html>
