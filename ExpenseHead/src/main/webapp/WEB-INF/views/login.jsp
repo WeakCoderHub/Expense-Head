@@ -81,8 +81,9 @@
 							</tr>
 							<tr>
 								<td align="center" width="200px">User Name :</td>
-								<td align="left"><form:select id="userNames"
-										path="userName">
+								<td align="left"><form:input path="" />
+								 <form:select
+										id="userNames" path="userName">
 										<form:option value="">Select User</form:option>
 									</form:select></td>
 								<td><form:errors path="userName" cssClass="error" /></td>
@@ -90,8 +91,8 @@
 							<tr>
 								<td align="center" width="200">Password :</td>
 								<td align="left"><form:password path="password" /></td>
-								<td align="left" width="400">
-								<form:errors path="password" cssClass="error" /></td>
+								<td align="left" width="400"><form:errors path="password"
+										cssClass="error" /></td>
 							</tr>
 							<tr>
 								<td></td>
