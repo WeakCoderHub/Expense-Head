@@ -63,39 +63,4 @@ $(document)
 												});
 									});
 
-					// adding Expense in database
-					$("#addToDB").click(function() {
-						var obj = {};
-						obj.amount = $("#expenseAmount").val();
-						obj.expenseType = $("#expenseTypeId").val();
-						obj.description = $("#description").val();
-
-						if ($('#pool').prop("checked") == true) {
-							obj.pool = "true";
-
-						} else if ($('#pool').prop("checked") == false) {
-							obj.pool = "false";
-
-						}
-
-						var jsonRequest = JSON.stringify(obj);
-						$.ajax({
-							type : "POST",
-							url : "addExpense",
-							data : jsonRequest,
-							contentType : "application/json; charset=utf-8",
-							dataType : "json",
-							success : function(data) {
-								$("#popupBackground").fadeOut("slow");
-								$("#popupForm").fadeOut("slow");
-								$("#forPopupUse").val("true");
-							},
-							failure : function(data) {
-								$("#popupBackground").fadeOut("slow");
-								$("#popupForm").fadeOut("slow");
-								$("#forPopupUse").val("true");
-							}
-						});
-					});
-
 				});

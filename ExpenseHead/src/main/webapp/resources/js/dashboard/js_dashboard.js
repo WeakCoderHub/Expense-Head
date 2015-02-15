@@ -1,105 +1,61 @@
  $(document).ready(function(){
-	 $("#addExpenseId").click(function(){
-        $("#addExpensePopup").show();
-	 });
-	 
-	 
-	 
-	 jQuery(".popupopen").click(function() {
-		 
-		  box = jQuery(this).attr('rel');
-		  jQuery('#'+box).show();
-		  
-		  width = -1 * parseInt((jQuery('#'+box).width()/2));
-		  height = -1 * parseInt((jQuery('#'+box).height()/2));
-		  jQuery('#'+box).css('margin-left',width).css('margin-top',height);
-		  return false;
-		});
-	 
-		jQuery(".popupclose").click(function() {
-		  jQuery(this).parent().hide();
-		  return false;
-		});
-		
-		var popupStatus = 0;
-		
-		function loadPopup()
-		{
 
-			if(popupStatus==0)
-			{
-				$("#popupBackground").css(
-				{
-					"opacity": "0.3"
-				});
-				$("#popupBackground").fadeIn("slow");
-				$("#popupForm").fadeIn("slow");
-				popupStatus = 1;
-			}
-			
-		}
-		
-		function disablePopup()
-		{
-			if(popupStatus == 1)
-			{
-				$("#popupBackground").fadeOut("slow");
-				$("#popupForm").fadeOut("slow");
-				popupStatus = 0;
-			}
-		}
-		
-		function centrePopup()
-		{
-			var windowWidth = document.documentElement.clientWidth;
-			var windowHeight = document.documentElement.clientHeight;
-			
-			var popupHeight = $("#popupForm").height();
-			var popupWidth = $("#popupForm").width();
-
-			$("#popupForm").css(
-			{
-				"position": "absolute",
-				"top": windowHeight/2-popupHeight/2,
-				"left": windowWidth/2-popupWidth/2
+ 
+		// adding Expense in database
+		$("#addExpense").click(function() {
+			var obj = {};
+			obj.amount = $("#expenseAmount").val();
+			obj.expenseType = $("#expenseTypeId").val();
+			obj.description = $("#description").val();
+			obj.pool=$('#pool').prop("checked");
+			var jsonRequest = JSON.stringify(obj);
+			$.ajax({
+				type : "POST",
+				url : "addExpense",
+				data : jsonRequest,
+				contentType : "application/json; charset=utf-8",
+				dataType : "json",
+				success : function(data) {
+					alert("success");
+				},
+				failure : function(data) {
+					alert("failure");
+				}
 			});
-			
-			$("#popupBackground").css({
-				"height": windowHeight,
-				"width": windowWidth
+		});
+		
+		// adding Contribution in database
+		$("#addContribution").click(function() {
+			var obj = {};
+			obj.contributionAmount = $("#contributionAmount").val();
+			obj.monthContributed = $("#monthContributed").val();
+			obj.contributionDescription = $("#contributionDescription").val();
+			var jsonRequest = JSON.stringify(obj);
+			$.ajax({
+				type : "POST",
+				url : "addContribution",
+				data : jsonRequest,
+				contentType : "application/json; charset=utf-8",
+				dataType : "json",
+				success : function(data) {
+					alert("success");
+				},
+				failure : function(data) {
+					alert("failure");
+				}
 			});
-		}
-		
-		$(".popupClick").click(function()
-		{
-			//$('#popupBackground').show();
-			//$("#popupForm").show();
-//			$("#popupForm").append("Got it");
-			if($("#forPopupUse").val() == "true"){
-				popupStatus = 0;
-			}
-			centrePopup();
-			loadPopup();
 		});
 		
-		$("#closePopup").click(function()
-		{
-			disablePopup();
-		});
 		
-		$("#popupBackground").click(function()
-		{
-			disablePopup();
-		});
 		
-		$(document).keypress(function(e)
-		{
-			if(e.keyCode==27 && popupStatus==1)
-			{
-				disablePopup();
-			}
-		});
-
-
 		
- });
+	});
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
