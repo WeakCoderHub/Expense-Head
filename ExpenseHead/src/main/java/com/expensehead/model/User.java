@@ -39,8 +39,8 @@ public class User {
 	@Column(name = "payable")
 	private int payable;
 
-	@Column(name = "payback")
-	private int payback;
+	@Column(name = "receivable")
+	private int receivable;
 
 	public int getPayable() {
 		return payable;
@@ -48,14 +48,6 @@ public class User {
 
 	public void setPayable(int payable) {
 		this.payable = payable;
-	}
-
-	public int getPayback() {
-		return payback;
-	}
-
-	public void setPayback(int payback) {
-		this.payback = payback;
 	}
 
 	public String getPassword() {
@@ -113,5 +105,15 @@ public class User {
 	public void setUserType(char userType) {
 		this.userType = userType;
 	}
+
+	public int getReceivable() {
+		return receivable;
+	}
+
+	public void setReceivable(int receivable) {
+		this.receivable = receivable;
+	}
+	
+	
 
 }
