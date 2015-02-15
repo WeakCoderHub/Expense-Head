@@ -8,5 +8,6 @@
 		<mapping class="com.expensehead.model.Group" />
 		<mapping class="com.expensehead.model.User" />
 		<mapping class="com.expensehead.model.Transactions" />
+		<mapping class="com.expensehead.model.Ledger" />
 	</session-factory>
 </hibernate-configuration>

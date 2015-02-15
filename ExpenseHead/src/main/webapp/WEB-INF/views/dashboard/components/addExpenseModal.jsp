@@ -39,7 +39,7 @@
 			
 			<div class="modal-footer">
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel	</button>
-				<button id="addToDB" name="submit" value="submit" class="btn btn-primary" data-dismiss="modal">Add Expense</button>
+				<button id="addExpense" name="submit" value="submit" class="btn btn-primary" data-dismiss="modal">Add Expense</button>
 			</div>
 			
 		</div>

@@ -19,6 +19,7 @@
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/dashboard/js_dashboard.js"></script>
 
 	<body>
 		<div>
@@ -27,6 +28,9 @@
 			<jsp:include page="/WEB-INF/views/dashboard/components/addContribution.jsp"></jsp:include>
 
 		</div>
+
+
+
 
 
 	</body>

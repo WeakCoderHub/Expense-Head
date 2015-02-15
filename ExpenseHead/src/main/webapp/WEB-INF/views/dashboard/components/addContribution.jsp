@@ -19,15 +19,15 @@
 					<br/>
 					<div class="form-inline form-inline-box">
 						<label for="month">Month</label>
-						<select class="form-control" name="month" id="month" style="width:30%">
-							<option>Active</option>
-							<option>Inactive</option>
+						<select class="form-control" name="month" id="monthContributed" style="width:30%">
+							<option>1</option>
+							<option>2</option>
 						</select>
 					</div>
 					<br/>
 					<div class="form-group">
 						<label for="description">Description</label>
-						<textarea class="form-control" id="description" rows="3"></textarea>
+						<textarea class="form-control" id="contributionDescription" rows="3"></textarea>
 					</div>
 				</form>
 			</div>
@@ -36,7 +36,7 @@
 			
 			<div class="modal-footer">
 				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel	</button>
-				<button id="addToDB" name="submit" value="submit" class="btn btn-primary" data-dismiss="modal">Add Contribution</button>
+				<button id="addContribution" name="submit" value="submit" class="btn btn-primary" data-dismiss="modal">Add Contribution</button>
 			</div>
 			
 		</div>
