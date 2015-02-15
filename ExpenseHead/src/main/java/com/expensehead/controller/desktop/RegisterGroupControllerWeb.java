@@ -15,10 +15,10 @@ public class RegisterGroupControllerWeb extends RegisterGroupController {
 	@RequestMapping(value = { "/dashBoard" }, method = RequestMethod.GET)
 	public String viewDashBoard(Model model, HttpServletRequest request) {
 
-		model.addAttribute(
+		/*model.addAttribute(
 				"currentAmount",
 				groupService.getRemainingAmount(request.getSession()
-						.getAttribute("groupId").toString()));
+						.getAttribute("groupId").toString()));*/
 		return "/dashboard/pages/dashboard";
 
 	}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.expensehead.constants.ExpenseType;
+import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
 import com.expensehead.service.TransactionService;
 
@@ -46,5 +47,18 @@ public abstract class ExpenseController {
 	    
 		return response;
 	}
+	
+	@RequestMapping(value={"/addContribution"},method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> addContribution(@RequestBody final AddContributionForm addContributionForm,HttpServletRequest request){
+ 
+		Map<String,String> response = new HashMap<String,String>();
+	    int result = transaction.addContribution(addContributionForm , request);	
+		if(result > 0 ){
+			response.put("success","true");
+		}
+		return response;
+	}
+	
 	
 }
