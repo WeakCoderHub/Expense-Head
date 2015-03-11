@@ -44,10 +44,11 @@ public class TransactionDaoImpl implements TransactionDao {
 	}
 
 	@Override
-	public int savePoolExpense(Transactions transaction) {
-		amount = -amount;
+	public int savePoolExpense(Transactions transactions) {
+		int amount = 0;
 		Session session = this.sessionFactory.getCurrentSession();
 		int result = (Integer) session.save(transactions);
+		String groupId="";
 		Query q = session.createQuery("update Group set depositsLeft = depositsLeft + :amount where groupId = '"+groupId+"'");
 		q.setParameter("amount",amount);
 		result = q.executeUpdate();
