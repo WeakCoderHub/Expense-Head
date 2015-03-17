@@ -12,108 +12,117 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user", catalog = "expenseheaddb")
 public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "userId")
-	private int userId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userId")
+    private int userId;
 
-	@ManyToOne
-	@JoinColumn(name = "groupName")
-	private Group group;
+    @ManyToOne
+    @JoinColumn(name = "groupName")
+    private Group group;
 
-	@Column(name = "userName")
-	private String userName;
+    /*
+     * @OneToMany(fetch = FetchType.EAGER, mappedBy = "stickenote")
+     * 
+     * @Cascade(CascadeType.ALL) private List<StickeNote> stickenote;
+     */
 
-	@Column(name = "emailId")
-	private String emailId;
+    @Column(name = "userName")
+    private String userName;
 
-	@Column(name = "contactNo")
-	private String contactNo;
+    @Column(name = "emailId")
+    private String emailId;
 
-	@Column(name = "userType")
-	private char userType;
+    @Column(name = "contactNo")
+    private String contactNo;
 
-	@Column(name = "password")
-	private String password;
+    @Column(name = "userType")
+    private char userType;
 
-	@Column(name = "payable")
-	private int payable;
+    @Column(name = "password")
+    private String password;
 
-	@Column(name = "receivable")
-	private int receivable;
+    @Column(name = "payable")
+    private int payable;
 
-	public int getPayable() {
-		return payable;
-	}
+    @Column(name = "receivable")
+    private int receivable;
 
-	public void setPayable(int payable) {
-		this.payable = payable;
-	}
+    /*
+     * public List<StickeNote> getStickenote() { return stickenote; }
+     * 
+     * public void setStickenote(List<StickeNote> stickenote) { this.stickenote = stickenote; }
+     */
+    public int getPayable() {
+        return payable;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setPayable(int payable) {
+        this.payable = payable;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setContactNo(String contactNo) {
-		this.contactNo = contactNo;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public int getUserId() {
-		return userId;
-	}
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public Group getGroup() {
-		return group;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public void setGroup(Group group) {
-		this.group = group;
-	}
+    public Group getGroup() {
+        return group;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getEmailId() {
-		return emailId;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
+    public String getEmailId() {
+        return emailId;
+    }
 
-	public String getContactNo() {
-		return contactNo;
-	}
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
-	public char getUserType() {
-		return userType;
-	}
+    public String getContactNo() {
+        return contactNo;
+    }
 
-	public void setUserType(char userType) {
-		this.userType = userType;
-	}
+    public char getUserType() {
+        return userType;
+    }
 
-	public int getReceivable() {
-		return receivable;
-	}
+    public void setUserType(char userType) {
+        this.userType = userType;
+    }
 
-	public void setReceivable(int receivable) {
-		this.receivable = receivable;
-	}
-	
-	
+    public int getReceivable() {
+        return receivable;
+    }
+
+    public void setReceivable(int receivable) {
+        this.receivable = receivable;
+    }
 
 }

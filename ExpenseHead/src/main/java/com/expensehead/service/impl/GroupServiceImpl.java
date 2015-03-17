@@ -19,87 +19,87 @@ import com.expensehead.service.GroupService;
 @Service
 public class GroupServiceImpl implements GroupService {
 
-	@Autowired
-	private GroupDao groupDao;
+    @Autowired
+    private GroupDao groupDao;
 
-	@Override
-	@Transactional
-	public int createGroup(Group g) {
-		groupDao.insertGroup(g);
-		return 0;
-	}
+    @Override
+    @Transactional
+    public int createGroup(Group g) {
+        groupDao.insertGroup(g);
+        return 0;
+    }
 
-	@Override
-	@Transactional
-	public int removeGroup(String groupId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    @Transactional
+    public int removeGroup(String groupId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	@Transactional
-	public int editGroup(String groupId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    @Transactional
+    public int editGroup(String groupId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	@Transactional
-	public Set<String> getUsersList(String groupName) {
-		List<User> users = groupDao.fetchGroup(groupName);
-		Set<String> userSet = new HashSet<String>();
-		for (User user : users) {
-			userSet.add(user.getUserName());
-		}
+    @Override
+    @Transactional
+    public Set<String> getUsersList(String groupName) {
+        List<User> users = groupDao.fetchGroup(groupName);
+        Set<String> userSet = new HashSet<String>();
+        for (User user : users) {
+            userSet.add(user.getUserName());
+        }
 
-		return userSet;
-	}
+        return userSet;
+    }
 
-	@Override
-	@Transactional
-	public Set<String> getUsers(String groupId) {
-		// Set<String> users=groupDao.fetchUsers(groupId);
-		return null;
-	}
+    @Override
+    @Transactional
+    public Set<String> getUsers(String groupId) {
+        // Set<String> users=groupDao.fetchUsers(groupId);
+        return null;
+    }
 
-	public void setGroupDao(GroupDao groupDao) {
-		this.groupDao = groupDao;
-	}
+    public void setGroupDao(GroupDao groupDao) {
+        this.groupDao = groupDao;
+    }
 
-	@Override
-	@Transactional
-	public int registration(RegisterForm registerForm) {
-		List<User> users = new ArrayList<User>();
-		Group group = new Group();
-		User user = null;
+    @Override
+    @Transactional
+    public int registration(RegisterForm registerForm) {
+        List<User> users = new ArrayList<User>();
+        Group group = new Group();
+        User user = null;
 
-		group.setAddress(registerForm.getAddress());
-		group.setGroupName(registerForm.getGroupName());
+        group.setAddress(registerForm.getAddress());
+        group.setGroupName(registerForm.getGroupName());
 
-		for (UserForm form : registerForm.getListOfMembers()) {
-			user = new User();
+        for (UserForm form : registerForm.getListOfMembers()) {
+            user = new User();
 
-			user.setContactNo(form.getContactNo());
-			user.setEmailId(form.getEmailId());
-			user.setPassword(group.getGroupName());
-			user.setUserName(form.getUserName());
-			user.setUserType(form.getIsAdmin().charAt(0));
-			user.setGroup(group);
-			users.add(user);
-		}
+            user.setContactNo(form.getContactNo());
+            user.setEmailId(form.getEmailId());
+            user.setPassword(group.getGroupName());
+            user.setUserName(form.getUserName());
+            user.setUserType(form.getIsAdmin().charAt(0));
+            user.setGroup(group);
+            users.add(user);
+        }
 
-		group.setNoOfMembers(users.size());
-		group.setUsers(users);
-		groupDao.RegisterGroup(group);
+        group.setNoOfMembers(users.size());
+        group.setUsers(users);
+        groupDao.RegisterGroup(group);
 
-		return group.getGroupId();
-	}
+        return group.getGroupId();
+    }
 
-	@Override
-	@Transactional
-	public long getRemainingAmount(String groupId) {
-		long result = groupDao.getCurrentAmount(groupId);
-		return result;
-	}
+    @Override
+    @Transactional
+    public long getRemainingAmount(String groupId) {
+        long result = groupDao.getCurrentAmount(groupId);
+        return result;
+    }
 
 }

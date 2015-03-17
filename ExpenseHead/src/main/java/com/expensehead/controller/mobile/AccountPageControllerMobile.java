@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.expensehead.controller.common.AccountPageController;
 import com.expensehead.form.GenericResponse;
@@ -19,6 +20,7 @@ public class AccountPageControllerMobile extends AccountPageController {
 	
 	
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
+	@ResponseBody
 	public GenericResponse login(@Valid LoginForm loginForm,
 			HttpServletRequest request) {
 

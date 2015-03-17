@@ -15,82 +15,79 @@ import com.expensehead.model.User;
 @Repository
 public class GroupDaoImpl implements GroupDao {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	@Override
-	public int deleteGroup(String groupId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int deleteGroup(String groupId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int updateGroup(String groupId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int updateGroup(String groupId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<User> fetchGroup(String groupName) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("from Group where groupName='"
-				+ groupName + "'");
-		List<Group> group = (List<Group>) q.list();
-		Group g = group.get(0);
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> fetchGroup(String groupName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query q = session.createQuery("from Group where groupName='" + groupName + "'");
+        List<Group> group = (List<Group>) q.list();
+        List<User> users = null;
+        try {
+            Group g = group.get(0);
+            users = g.getUsers();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+        return users;
 
-		List<User> users = g.getUsers();
-		return users;
+    }
 
-	}
+    @Override
+    public int insertGroup(Group g) {
+        Session session = this.sessionFactory.getCurrentSession();
+        try {
+            session.save(g);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
-	@Override
-	public int insertGroup(Group g) {
-		Session session = this.sessionFactory.getCurrentSession();
-		try {
-			// Test test=new Test();
-			// test.setId("b");
-			// session.save(test);
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
-			session.save(g);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
-		return 0;
-	}
+    @Override
+    public List<User> fetchUsers(String groupId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query q = session.createQuery("from Group where groupId='" + groupId + "'");
+        @SuppressWarnings("unchecked")
+        List<Group> group = (List<Group>) q.list();
+        Group g = group.get(0);
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+        List<User> users = g.getUsers();
+        return users;
+    }
 
-	@Override
-	public List<User> fetchUsers(String groupId) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("from Group where groupId='" + groupId
-				+ "'");
-		@SuppressWarnings("unchecked")
-		List<Group> group = (List<Group>) q.list();
-		Group g = group.get(0);
+    @Override
+    public int RegisterGroup(Group group) {
 
-		List<User> users = g.getUsers();
-		return users;
-	}
+        Session session = this.sessionFactory.getCurrentSession();
+        session.save(group);
+        return 0;
+    }
 
-	@Override
-	public int RegisterGroup(Group group) {
-
-		Session session = this.sessionFactory.getCurrentSession();
-		session.save(group);
-		return 0;
-	}
-
-	@Override
-	public long getCurrentAmount(String groupId) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("select depositsLeft from Group where groupId = '"+groupId+"'");
-		int result = (int) q.list().get(0);
-		return result;
-	}
+    @Override
+    public long getCurrentAmount(String groupId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query q = session.createQuery("select depositsLeft from Group where groupId = '" + groupId + "'");
+        int result = (int) q.list().get(0);
+        return result;
+    }
 
 }

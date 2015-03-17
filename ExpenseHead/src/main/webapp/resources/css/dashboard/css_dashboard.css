@@ -1,86 +1,82 @@
-@CHARSET "ISO-8859-1";
-
-.addExpenseTable tr {
-	height: 2em;
+.header_height .navbar {
+	height: 6em !important;
+	margin-bottom: 0px !important;
 }
 
-.addExpenseTable tr:last-child {
-	text-align: center;
+.header_height {
+	height: 6em !important;
 }
 
-.addExpenseTable tr:last-child td{
-vertical-align: bottom;
+.modal-backdrop {
+	top: 5.5% !important;
+	left: 18% !important;
+	right: 18% !important;
 }
-.addExpenseTable {
+
+#sandbox-container .table-condensed {
+	background-color: rgb(252, 244, 244);
 	border-radius: 10px;
 }
 
-#popupBackground {
-	display: none;
-	position: relative;
-	_position: relative; /* hack for internet explorer 6*/
-	height: 100%;
+.col-md-5 {
+	width: auto;
+}
+
+#footer {
+	clear: both;
+	height: 5em;
+	margin: 0 auto;
+	background-color: #000000;
 	width: 100%;
-	top: 0;
+	color: #a8a8a7;
+	font-size: 75%;
+	text-align: center;
+	z-index: 1000;
+	bottom: 0px;
+	position: fixed;
 	left: 0;
-	background: #000000;
-	z-index: 1;
 }
 
-#popupForm {
-	display: none;
-	position: relative;
-	_position: relative; /* hack for internet explorer 6*/
-	/* 				height: 200px; */
-	/* 				width:200px; */
-	background: #5C5C5C;
-	border: 1px solid #555;
-	z-index: 2;
-	padding: 5px;
+.left-section textarea {
+	display: block;
+	padding: 25px 25px 40px;
+	margin: 0 auto 20px auto;
+	width: 235px;
+	height: 250px;
+	font: 20px 'Gloria Hallelujah', cursive;
+	line-height: 1.5;
+	border: 0;
+	border-radius: 3px;
+	background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
+	background: -moz-linear-gradient(#F9EFAF, #F7E98D);
+	background: -o-linear-gradient(#F9EFAF, #F7E98D);
+	background: -ms-linear-gradient(#F9EFAF, #F7E98D);
+	background: linear-gradient(#F9EFAF, #F7E98D);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	transition: box-shadow 0.5s ease;
+	font-smoothing: subpixel-antialiased;
+	max-width: 520px;
+	max-height: 250px;
+	
+	
+	/* Rotate div */
+    -ms-transform: rotate(-3deg); /* IE 9 */
+    -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
+    transform: rotate(-3deg);
 }
 
-.dashboardHeader {
-	height: 6em;
-	background-color: #000;
+.left-section textarea:hover {
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
 }
 
-.align-it {
-	float:left;
-	margin-top: 74px;
-	color: white;
-	text-decoration: none;
+.left-section textarea:focus {
+	box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+	outline: none;
 }
 
-.valign-inputbox {
-	padding-left: 15px !important;
-	padding-right: 15px !important;
-	height: 45px !important;
-}
-.addExpenseTable table td{
-	vertical-align: top;
-	height: 35px;
-}
-
-.button-secondary {
-            background-color: #fff; /* this is a light blue */
-        }
-.pure-button {
-font-family: inherit;
-font-size: 100%;
-/* padding: .5em 1em; */
-color: #444;
-color: rgba(0, 0, 0, .8);
-border: 1px solid #999;
-border: 0 transparent;
-/* background-color: #E6E6E6; */
-text-decoration: none;
-border-radius: 2px;
-
-height: 25px;
-width: 100px;
-
-border-top-left-radius: 2px 2px;
-border-top-right-radius: 2px 2px;
-border-bottom-right-radius: 2px 2px;
-border-bottom-left-radius: 2px 2px;
+body {
+	background: url(http://subtlepatterns.com/patterns/little_pluses.png)
+		#cacaca;
+	margin: 30px;
 }
