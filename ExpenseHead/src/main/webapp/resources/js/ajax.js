@@ -2,13 +2,10 @@ $(document)
 		.ready(
 				function() {
 
-					$('#groupid')
-							.focusout(
-									function() {
+					$('#groupid').focusout(function() {
 										var groupName = $('#groupid').val();
 										dataString = "groupName=" + groupName;
-										$
-												.ajax({
+										$.ajax({
 													type : "GET",
 													url : "getUserList",
 													data : dataString,
@@ -33,12 +30,8 @@ $(document)
 												});
 									});
 
-					$('#expenseAmount')
-							.focusout(
-									function() {
-
-										$
-												.ajax({
+					$('#expenseAmount').focusout(function() {
+						$.ajax({
 													type : "GET",
 													url : "expensetypes",
 													dataType : "text",
@@ -46,7 +39,7 @@ $(document)
 														var obj = jQuery
 																.parseJSON(data);
 
-														var len = obj.length;
+														
 														var html = '<option value="">Select Type</option>';
 														for (var i = 0; i < len; i++) {
 															html += '<option value="'

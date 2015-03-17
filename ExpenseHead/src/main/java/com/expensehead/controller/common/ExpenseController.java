@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.expensehead.constants.ExpenseType;
 import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
+import com.expensehead.form.SettleDuesForm;
+import com.expensehead.model.Journal;
+import com.expensehead.model.Transactions;
 import com.expensehead.service.TransactionService;
 
 
@@ -60,5 +63,44 @@ public abstract class ExpenseController {
 		return response;
 	}
 	
+	@RequestMapping(value={"/settleDues"},method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> settleDues(@RequestBody final SettleDuesForm settleDuesForm,HttpServletRequest request){
+ 
+		Map<String,String> response = new HashMap<String,String>();
+	    int result = transaction.settleDues(settleDuesForm , request);	
+		if(result > 0 ){
+			response.put("success","true");
+		}
+		return response;
+	}
+	
+	@RequestMapping(value={"/getExpenseDetails"},method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Transactions> getExpenseDetails(HttpServletRequest request){
+ 
+		Map<String,Transactions> response = new HashMap<String,Transactions>();
+	    List<Transactions> result = transaction.getExpenseDetails();	
+		int i=0;
+	    for(Transactions transaction : result)
+	    {
+	    	response.put(String.valueOf(++i), transaction);
+	    }
+		return response;
+	}
+	
+	@RequestMapping(value={"/getJournalDetails"},method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Journal> getJournalDetails(HttpServletRequest request){
+ 
+		Map<String,Journal> response = new HashMap<String,Journal>();
+	    List<Journal> result = transaction.getJournalDetails();	
+		int i=0;
+	    for(Journal journal : result)
+	    {
+	    	response.put(String.valueOf(++i), journal);
+	    }
+		return response;
+	}
 	
 }
