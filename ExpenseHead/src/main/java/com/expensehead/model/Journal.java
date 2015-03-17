@@ -21,6 +21,8 @@ public class Journal {
 	@Column(name = "userId")
 	private int userId;
 
+	@Column(name = "groupId")
+	private int groupId;
 	
 	/**
 	 * Return
@@ -76,5 +78,15 @@ public class Journal {
 	public void setRecordDate(Date recordDate) {
 		this.recordDate = recordDate;
 	}
+
+	public int getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
+	
+	
 
 }
