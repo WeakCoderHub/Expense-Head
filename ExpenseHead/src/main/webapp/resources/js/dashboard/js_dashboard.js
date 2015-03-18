@@ -56,9 +56,11 @@ $(document)
 							data :  date,
 							contentType : "application/json; charset=utf-8",
 							success : function(data){
-								alert(data);
-								
-								// need to add message to sticky note.
+								// Message is added in Sticky note.
+								$('#stickyNote').val(data);
+							},
+							error : function(){
+								$('#stickyNote').val("This is a sticky note you can type and edit.");
 							}
 						});
 					});
@@ -88,7 +90,7 @@ $(document)
 													contentType : "application/json; charset=utf-8",
 													dataType : "json",
 													success : function(data) {
-														alert("success");
+														location.reload(true);
 													},
 													error : function(data) {
 														alert("error");

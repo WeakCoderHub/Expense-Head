@@ -25,23 +25,23 @@
 #footer {
 	clear: both;
 	height: 5em;
-	margin: 0 auto;
+/* 	margin: 0 auto; */
 	background-color: #000000;
 	width: 100%;
 	color: #a8a8a7;
 	font-size: 75%;
 	text-align: center;
 	z-index: 1000;
-	bottom: 0px;
-	position: fixed;
+	bottom: 0;
+	position: absolute;
 	left: 0;
 }
 
 .left-section textarea {
 	display: block;
 	padding: 25px 25px 40px;
-	margin: 0 auto 20px auto;
-	width: 235px;
+	/* 	margin: 0 auto 20px auto; */
+	margin-bottom: 20px; width : 235px;
 	height: 250px;
 	font: 20px 'Gloria Hallelujah', cursive;
 	line-height: 1.5;
@@ -58,12 +58,12 @@
 	font-smoothing: subpixel-antialiased;
 	max-width: 520px;
 	max-height: 250px;
-	
-	
+	width: 235px
+
 	/* Rotate div */
-    -ms-transform: rotate(-3deg); /* IE 9 */
-    -webkit-transform: rotate(-3deg); /* Chrome, Safari, Opera */
-    transform: rotate(-3deg);
+	/*  -ms-transform: rotate(-3deg); IE 9
+    -webkit-transform: rotate(-3deg); Chrome, Safari, Opera
+    transform: rotate(-3deg); */
 }
 
 .left-section textarea:hover {
@@ -78,5 +78,9 @@
 body {
 	background: url(http://subtlepatterns.com/patterns/little_pluses.png)
 		#cacaca;
-	margin: 30px;
+	/* 	margin: 30px; */
+}
+
+.redText {
+	color: red;
 }
