@@ -1,7 +1,7 @@
 <div id="header"
 			class="header navbar navbar-default navbar-inverse">
 			<div class="container-fluid" style="padding-left:0%;">
-			<img src="resources/images/logo.PNG"  style="float: left;height: 84px;"/>
+			<ul class="nav navbar-nav"><li> <img src="resources/images/logo.PNG"  style="float: left;height: 84px;"/></li></ul>
 				<ul class="nav navbar-nav" style="color:white;padding-top: 15px;">
 <!-- 				<li id="dashboad_logo"><img src="resources/images/logo.PNG" /></li> -->
 				<li>
