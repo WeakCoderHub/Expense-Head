@@ -17,8 +17,8 @@
 .myTable_wrapper_size {
 	padding-top: 50px;
 	/* 	padding-right: 380px; */
-	padding-left: 95px;
-	width: 75%;
+/* 	padding-left: 95px; */
+	width: 100%;
 }
 </style>
 
@@ -59,8 +59,10 @@
 				<button id="saveStickyNotes" class="btn btn-default">Save Notes</button>
 			</div>
 		</div>
+		<div style="width: 80%;">
 		<div id="transactionDetails" style="display: flex;"></div>
 		<div id="journalDetails"  style="display: flex;"></div>
+		</div>
 		<div></div>
 	</div>
 	<div id="footer">

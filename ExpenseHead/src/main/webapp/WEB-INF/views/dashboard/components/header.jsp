@@ -1,8 +1,9 @@
 <div id="header"
 			class="header navbar navbar-default navbar-inverse">
 			<div class="container-fluid" style="padding-left:0%;">
-			
-				<ul class="nav navbar-nav" style="color:white; margin-left:10%;padding-right:5%;">
+			<img src="resources/images/logo.PNG"  style="float: left;height: 84px;"/>
+				<ul class="nav navbar-nav" style="color:white;padding-top: 15px;">
+<!-- 				<li id="dashboad_logo"><img src="resources/images/logo.PNG" /></li> -->
 				<li>
 				<form class="navbar-form full-width" >
 					<a href="#addExpenseModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-plus" style="color:white;font-size: 20px;"> Add Expense</i></a>
@@ -32,7 +33,7 @@
 							
 			
 			
-				<ul class="nav navbar-nav navbar-right"><!--
+				<ul class="nav navbar-nav navbar-right" style="padding-top: 15px;"><!--
 					
 								<!--Search Box-->
 					<li>

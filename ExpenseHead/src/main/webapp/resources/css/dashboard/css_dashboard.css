@@ -84,3 +84,7 @@ body {
 .redText {
 	color: red;
 }
+
+#dashboad_logo img{
+	height: 84px;
+}
