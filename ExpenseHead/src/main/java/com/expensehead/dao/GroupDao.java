@@ -12,11 +12,12 @@ public interface GroupDao {
 	public int RegisterGroup(Group group);
 	
 	public List<User> fetchGroup(String groupId);
-	public List<User> fetchUsers(String groupId);
+	public Group getGroup(String groupId);
 	
 	/**
 	 * @param  groupId
 	 * @return Remaining amount in group pool .
 	 */
 	public long getCurrentAmount(String groupId);
+	
 }

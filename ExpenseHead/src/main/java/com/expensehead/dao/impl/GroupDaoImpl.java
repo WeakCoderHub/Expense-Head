@@ -63,15 +63,13 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public List<User> fetchUsers(String groupId) {
+    public Group getGroup(String groupId) {
         Session session = this.sessionFactory.getCurrentSession();
         Query q = session.createQuery("from Group where groupId='" + groupId + "'");
         @SuppressWarnings("unchecked")
         List<Group> group = (List<Group>) q.list();
         Group g = group.get(0);
-
-        List<User> users = g.getUsers();
-        return users;
+        return g;
     }
 
     @Override

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.expensehead.dao.UtilityDao;
+import com.expensehead.form.GroupTransactionSummary;
 import com.expensehead.model.StickyNote;
 
 @Repository
@@ -46,5 +47,11 @@ public class UtilityDoaImpl implements UtilityDao {
         List<String> dates = (List<String>) q.list();
         return (ArrayList<String>) dates;
     }
+
+	@Override
+	public GroupTransactionSummary getSummary(String groupId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

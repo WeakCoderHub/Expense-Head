@@ -17,7 +17,7 @@
 .myTable_wrapper_size {
 	padding-top: 50px;
 	/* 	padding-right: 380px; */
-/* 	padding-left: 95px; */
+	/* 	padding-left: 95px; */
 	width: 100%;
 }
 </style>
@@ -30,6 +30,7 @@
 	type="text/css">
 <link href="resources/css/tables/jquery.dataTables.min.css"
 	rel="stylesheet">
+<link href="/resources/css/local.css" rel="stylesheet">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
@@ -50,21 +51,26 @@
 	</div>
 	<input type="hidden" id="selectedDate" />
 	<div style="width: 100%;" class="left-section">
-		<div style="width: 20%;">
-			<div class="span5 col-md-5" style="min-height: 640px;" id="sandbox-container">
+		<div style="width: 0px">
+			<div class="span5 col-md-5" style="min-height: 640px;"
+				id="sandbox-container">
 				<div id="dateSelector" style="margin-top: 25px; margin-bottom: 5px;"></div>
 				<p class="redText">Your Message Will be Delete after 30 days.</p>
 				<textarea id="stickyNote">This is a sticky note you can type and edit.
 				</textarea>
-				<button id="saveStickyNotes" class="btn btn-default">Save Notes</button>
+				<button id="saveStickyNotes" class="btn btn-default">Save
+					Notes</button>
 			</div>
 		</div>
-		<div style="width: 80%;">
-		<div id="transactionDetails" style="display: flex;"></div>
-		<div id="journalDetails"  style="display: flex;"></div>
+		<div style="width: 60%; float: left;">
+			<div id="transactionDetails"></div>
+			<div id="journalDetails"></div>
 		</div>
-		<div></div>
+		<div style="float: right">
+			<jsp:include page="/WEB-INF/views/dashboard/components/summary.jsp"></jsp:include>
+		</div>
 	</div>
+
 	<div id="footer">
 		@Copyright
 		<div>Contact us : weakcoder@gmail.com</div>
@@ -81,4 +87,7 @@
 	</c:forEach>
 </script>
 <script src="resources/js/dashboard/js_dashboard.js"></script>
+<script type="text/javascript">
+	retrieveSummary();
+</script>
 </html>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.expensehead.form.GroupTransactionSummary;
 import com.expensehead.form.StickyNoteForm;
 
 /**
@@ -32,5 +33,7 @@ public interface UtilityServices {
      * @return messages on given date 
      */
     public String getStickyNote(String userId,String date);
+    
+    public GroupTransactionSummary getSummary(HttpServletRequest request);
 }
  

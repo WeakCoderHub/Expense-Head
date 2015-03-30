@@ -2,6 +2,7 @@ package com.expensehead.dao;
 
 import java.util.ArrayList;
 
+import com.expensehead.form.GroupTransactionSummary;
 import com.expensehead.model.StickyNote;
 
 /**
@@ -27,4 +28,6 @@ public interface UtilityDao {
      * @param date List of messages at selected date ;
      */
     public ArrayList<String> getStickyNote(int userId , String date);
+    
+    public GroupTransactionSummary getSummary(String groupId);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.expensehead.form.GroupTransactionSummary;
 import com.expensehead.form.StickyNoteForm;
 import com.expensehead.service.UtilityServices;
 
@@ -39,5 +40,12 @@ public class DashboardController {
         String message = null;
         message = utilityServices.getStickyNote(String.valueOf(request.getSession().getAttribute("userId")), date);
         return message;
+    }
+    
+    @RequestMapping(value = { "/getSummary" })
+    @ResponseBody
+    public GroupTransactionSummary getGroupSummary(HttpServletRequest request){
+        GroupTransactionSummary groupTransactionSummary = utilityServices.getSummary(request);
+        return groupTransactionSummary;
     }
 }

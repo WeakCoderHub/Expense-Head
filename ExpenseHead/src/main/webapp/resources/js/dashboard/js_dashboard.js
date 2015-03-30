@@ -1,7 +1,7 @@
 $(document)
 		.ready(
 				function() {
-
+					 
 					$('#sandbox-container div').datepicker({
 						/*
 						 * beforeShowDay: function(date) { // var highlight =
@@ -116,7 +116,7 @@ $(document)
 							contentType : "application/json; charset=utf-8",
 							dataType : "json",
 							success : function(data) {
-								alert(data);
+								retrieveSummary();
 							},
 							failure : function(data) {
 								alert("failure");
@@ -145,7 +145,7 @@ $(document)
 													contentType : "application/json; charset=utf-8",
 													dataType : "json",
 													success : function(data) {
-														alert("success");
+														retrieveSummary();
 													},
 													failure : function(data) {
 														alert("failure");
@@ -165,7 +165,7 @@ $(document)
 				contentType : "application/json; charset=utf-8",
 				dataType : "json",
 				success : function(data) {
-					alert("success");
+					retrieveSummary();
 				},
 				failure : function(data) {
 					alert("failure");
@@ -235,10 +235,40 @@ $(document)
 					});
 		
 		
+		function retrieveSummary(){
+			$.ajax({
+						type : "GET",
+						url : "getSummary",
+						dataType : "text",
+						success : function(data) {
+							var obj = jQuery.parseJSON(data);
+							var len = Object.keys(obj.memberSummary).length;
+
+							var html = '<table class="table table-hover">';
+							html+='<thead><tr><th>Member</th><th>Payable</th><th>Payback</th></thead><tbody>';  
+					     
+							for (var i = 0; i < len; i++) {
+								html += '<tr>'  
+						             +'<td>'+obj.memberSummary[i].memberName+'</td>'  
+						             +'<td>'+obj.memberSummary[i].payable+'</td>'  
+						             +'<td>'+obj.memberSummary[i].payback+'</td>' 
+						             +'</tr>';
+								
+							}
+								html += '</tbody></table>';
+								$('#membersSummary').html(html);
+								$('#totalDepositsSummary').html(obj.totalDeposits);
+								$('#balanceSummary').html(obj.balance);
+								$('#expensesSummary').html(obj.expenses);
+							}
+						});
+					} 
+		
+		retrieveSummary();
 		
 	});
 	 
-	 
+	
 	 
 	 
 	 
