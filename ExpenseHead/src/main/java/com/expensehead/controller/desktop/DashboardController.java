@@ -16,6 +16,7 @@ import com.expensehead.form.StickyNoteForm;
 import com.expensehead.service.UtilityServices;
 
 @Controller
+@RequestMapping("/dashboard")
 public class DashboardController {
 
     @Autowired

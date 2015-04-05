@@ -16,26 +16,21 @@ import com.expensehead.form.LoginForm;
 @RequestMapping(value = "/m")
 public class AccountPageControllerMobile extends AccountPageController {
 
-	
-	
-	
-	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-	@ResponseBody
-	public GenericResponse login(@Valid LoginForm loginForm,
-			HttpServletRequest request) {
+    @RequestMapping(value = { "/login" }, method = RequestMethod.POST)
+    @ResponseBody
+    public GenericResponse login(@Valid LoginForm loginForm, HttpServletRequest request) {
 
-		GenericResponse response = new GenericResponse();
-		int result = loginService.loginUser(loginForm, request);
-		if (result == 0) {
-			response.setStatus(false);
-		} else if (result == 1) {
-			request.getSession().setAttribute("username",
-					loginForm.getUserName());
-			response.setStatus(true);
-		} else {
-			response.setStatus(true);
-		}
+        GenericResponse response = new GenericResponse();
+        int result = loginService.loginUser(loginForm, request);
+        if (result == 0) {
+            response.setStatus(false);
+        } else if (result == 1) {
+            request.getSession().setAttribute("username", loginForm.getUserName());
+            response.setStatus(true);
+        } else {
+            response.setStatus(true);
+        }
 
-		return response;
-	}
+        return response;
+    }
 }

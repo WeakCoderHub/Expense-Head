@@ -1,12 +1,8 @@
 package com.expensehead.controller.desktop;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -26,12 +22,12 @@ import com.expensehead.service.UtilityServices;
 @Controller
 public class AccountPageControllerWeb extends AccountPageController {
 
-    private final String DASHBOAD_PAGE = "/dashboard/pages/dashboard";
+    private final String DASHBOAD_PAGE = "redirect:dashBoard";
     private final String LOGIN_PAGE = "login";
     @Autowired
     private UtilityServices utilityServices;
 
-    @RequestMapping(value = { "/" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/", "firstpage" }, method = RequestMethod.GET)
     public String getHomePage(Model model) {
         model.addAttribute("loginForm", new LoginForm());
         return LOGIN_PAGE;
@@ -57,8 +53,10 @@ public class AccountPageControllerWeb extends AccountPageController {
             redirect = DASHBOAD_PAGE;
         }
         List<String> eventDates = new ArrayList<String>();
-        for (String eventDate : dates) {
-            eventDates.add(eventDate.toString());
+        if (null != dates) {
+            for (String eventDate : dates) {
+                eventDates.add(eventDate.toString());
+            }
         }
         model.addAttribute("eventDates", eventDates);
         return redirect;

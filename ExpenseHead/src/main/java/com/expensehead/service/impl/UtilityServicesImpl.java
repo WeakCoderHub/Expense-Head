@@ -29,10 +29,10 @@ public class UtilityServicesImpl implements UtilityServices {
 
     @Autowired
     private UtilityDao utilityDao;
-    
+
     @Autowired
     UserDao userDao;
-    
+
     @Autowired
     GroupDao groupDao;
 
@@ -59,7 +59,7 @@ public class UtilityServicesImpl implements UtilityServices {
     @Override
     @Transactional
     public ArrayList<String> getAllStickyNoteDates(String userId) {
-       
+
         int id = stringToInt(userId);
         return utilityDao.allStickyNotes(id);
     }
@@ -69,7 +69,7 @@ public class UtilityServicesImpl implements UtilityServices {
     public String getStickyNote(String userId, String date) {
         int id = stringToInt(userId);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String result = null ;
+        String result = null;
         String dateInString = date;
         Date selectedDate = null;
         try {
@@ -79,49 +79,50 @@ public class UtilityServicesImpl implements UtilityServices {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
-        
+
         List<String> messages = utilityDao.getStickyNote(id, formatter.format(selectedDate));
-        result = messages.get(0);
+        if (!messages.isEmpty()) {
+            result = messages.get(0);
+        }
         return result;
     }
-    
-    private int stringToInt(String str){
+
+    private int stringToInt(String str) {
         int integer = 0;
-        try{
+        try {
             integer = Integer.parseInt(str);
-        }catch(ClassCastException c){
-            
-        } 
+        } catch (ClassCastException c) {
+
+        }
         return integer;
     }
 
-	@Override
-	 @Transactional
-	public GroupTransactionSummary getSummary(HttpServletRequest request) {
-		int groupId= ExpenseUtility.getGroupIdFromSession(request);
-		Group group = groupDao.getGroup(String.valueOf(groupId));
-		return createGroupTransactionSummary(group);
-	}
+    @Override
+    @Transactional
+    public GroupTransactionSummary getSummary(HttpServletRequest request) {
+        int groupId = ExpenseUtility.getGroupIdFromSession(request);
+        Group group = groupDao.getGroup(String.valueOf(groupId));
+        return createGroupTransactionSummary(group);
+    }
 
-	private GroupTransactionSummary createGroupTransactionSummary(Group group) {
-		GroupTransactionSummary groupTransactionSummary = new GroupTransactionSummary();
-		List<MemberSummary> listOfMembers = new ArrayList<MemberSummary>();
-		groupTransactionSummary.setTotalDeposits(group.getTotalDeposits());
-		groupTransactionSummary.setBalance(group.getDepositsLeft());
-		groupTransactionSummary.setExpenses(1000);
-		
-		List<User> users = group.getUsers(); 
-		for (User user : users) {
-			GroupTransactionSummary.MemberSummary memberSummary = groupTransactionSummary.new MemberSummary();
-			memberSummary.setMemberName(user.getUserName());
-			memberSummary.setPayable(user.getPayable());
-			memberSummary.setPayback(user.getReceivable());
-			listOfMembers.add(memberSummary);
-		}
-		groupTransactionSummary.setMemberSummary(listOfMembers);
-		return groupTransactionSummary;
-		
-	}
+    private GroupTransactionSummary createGroupTransactionSummary(Group group) {
+        GroupTransactionSummary groupTransactionSummary = new GroupTransactionSummary();
+        List<MemberSummary> listOfMembers = new ArrayList<MemberSummary>();
+        groupTransactionSummary.setTotalDeposits(group.getTotalDeposits());
+        groupTransactionSummary.setBalance(group.getDepositsLeft());
+        groupTransactionSummary.setExpenses(1000);
+
+        List<User> users = group.getUsers();
+        for (User user : users) {
+            GroupTransactionSummary.MemberSummary memberSummary = groupTransactionSummary.new MemberSummary();
+            memberSummary.setMemberName(user.getUserName());
+            memberSummary.setPayable(user.getPayable());
+            memberSummary.setPayback(user.getReceivable());
+            listOfMembers.add(memberSummary);
+        }
+        groupTransactionSummary.setMemberSummary(listOfMembers);
+        return groupTransactionSummary;
+
+    }
 
 }

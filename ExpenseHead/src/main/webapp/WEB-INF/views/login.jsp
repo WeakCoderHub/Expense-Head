@@ -72,34 +72,31 @@
 					<br /> <br />
 
 					<form:form method="post" modelAttribute="loginForm" action="login">
-						<table>
-							<tr>
-								<td align="center" width="200">Group Name :</td>
-								<td align="left"><form:input id="groupid" path="groupId" /></td>
-								<td align="left" width="400"><form:errors path="groupId"
-										cssClass="error" /></td>
-							</tr>
-							<tr>
-								<td align="center" width="200px">User Name :</td>
-								<td align="left"><form:input path="" />
-								 <form:select
-										id="userNames" path="userName">
-										<form:option value="">Select User</form:option>
-									</form:select></td>
-								<td><form:errors path="userName" cssClass="error" /></td>
-							</tr>
-							<tr>
-								<td align="center" width="200">Password :</td>
-								<td align="left"><form:password path="password" /></td>
-								<td align="left" width="400"><form:errors path="password"
-										cssClass="error" /></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td align="left"><input type="submit" value="Login" />&nbsp;&nbsp;&nbsp;<input
-									type="reset" value="Cancel" /></td>
-							</tr>
-						</table>
+
+
+						<div style="height: 35px;margin-bottom: 8px;">
+							<div class="lable">Group Name </div>
+							<div class="lable right"><form:input id="groupid" path="groupId" cssClass="form-control" /></div>
+						</div>
+						<div style="height: 35px;margin-bottom: 8px;">
+							<div class="lable">User Name </div>
+							<div class="lable right" id="usernameempty"><input  id="ClearCache"   class="form-control" /></div>
+							<div class="right hide" id="usernamelist">  <select id="userNames" class="select-style">
+								<option value="">Select User</option>
+							</select></div>
+							
+						</div>
+                        <div style="height: 35px;margin-bottom: 8px;">
+                           <div class="lable">Password </div>
+                           <div class="lable right">
+                           <form:password path="password"
+										cssClass="form-control" /></div>
+                        </div>
+                        
+                        <div style="margin: 30px 30px;"><input type="submit" value="Login" class="formbtn" onclick="populateUserName()" /><input
+									type="reset" value="Cancel" class="formbtn" style="margin-left: 65px"/></div>
+                        
+                        <div class="hide"><form:input path="userName" id="setUserName" /></div>
 					</form:form>
 				</div>
 

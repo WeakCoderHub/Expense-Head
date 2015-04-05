@@ -15,7 +15,7 @@ public interface TransactionService {
 	public int addExpense(AddExpenseForm expenseForm,HttpServletRequest request);
 	public int addContribution(AddContributionForm contributionForm, HttpServletRequest request);
 	public int settleDues(SettleDuesForm settleDuesForm,HttpServletRequest request);
-	public List<Transactions> getExpenseDetails();
-	public List<Journal> getJournalDetails();
+	public List<Transactions> getExpenseDetails(HttpServletRequest request);
+	public List<Journal> getJournalDetails(HttpServletRequest request);
 	
 }

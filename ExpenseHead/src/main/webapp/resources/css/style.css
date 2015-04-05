@@ -1,73 +1,70 @@
 /* radio button css */
-
 input[type=radio].css-checkbox {
-							position:absolute;
-							z-index:-1000;
-							left:-1000px;
-							overflow: hidden;
-							clip: rect(0 0 0 0);
-							height:1px; 
-							width:1px; 
-							margin:-1px; 
-							padding:0;
-							border:0;
-						}
+	position: absolute;
+	z-index: -1000;
+	left: -1000px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
 
-						input[type=radio].css-checkbox + label.css-label {
-							padding-left:27px;
-							height:22px; 
-							display:inline-block;
-							line-height:22px;
-							background-repeat:no-repeat;
-							background-position: 0 0;
-							font-size:22px;
-							vertical-align:middle;
-							cursor:pointer;
+input[type=radio].css-checkbox+label.css-label {
+	padding-left: 27px;
+	height: 22px;
+	display: inline-block;
+	line-height: 22px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	font-size: 22px;
+	vertical-align: middle;
+	cursor: pointer;
+}
 
-						}
+input[type=radio].css-checkbox:checked+label.css-label {
+	background-position: 0 -22px;
+}
 
-						input[type=radio].css-checkbox:checked + label.css-label {
-							background-position: 0 -22px;
-						}
-						
-						label.css-label {
-				background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_db37635e39bf1d9e5476808b266ec787.png);
-				-webkit-touch-callout: none;
-				-webkit-user-select: none;
-				-khtml-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			}
-			
+label.css-label {
+	background-image:
+		url(http://csscheckbox.com/checkboxes/u/csscheckbox_db37635e39bf1d9e5476808b266ec787.png);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 /* end radio button css */
 
 /* CSS Document */
-
-.large-input-box{
+.large-input-box {
 	width: 270px;
-height: 25px !important;
-border: 1px solid;
-border-color: rgba(0, 0, 0, 0.19) !important;
+	height: 25px !important;
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.19) !important;
 }
 
-.input-box{
+.input-box {
 	width: 220px;
-height: 25px !important;
-border: 1px solid;
-border-color: rgba(0, 0, 0, 0.19) !important;
+	height: 25px !important;
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.19) !important;
 }
 
-.register-button{
+.register-button {
 	color: white;
-border-radius: 4px;
-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-border-top-left-radius: 4px 4px;
-border-top-right-radius: 4px 4px;
-border-bottom-right-radius: 4px 4px;
-border-bottom-left-radius: 4px 4px;
-background: #65A6B8; /* this is a light blue */
-
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	border-top-left-radius: 4px 4px;
+	border-top-right-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+	border-bottom-left-radius: 4px 4px;
+	background: #65A6B8; /* this is a light blue */
 }
 
 body {
@@ -83,6 +80,7 @@ body {
 	height: 6em;
 	text-align: center;
 	background-color: #000000;
+	z-index: 1;
 }
 
 #container {
@@ -107,7 +105,7 @@ body {
 	height: 100%;
 	clear: both;
 	float: left;
-/* 	position: relative; */
+	/* 	position: relative; */
 	right: 40px;
 	text-align: left;
 	margin-top: 17%;
@@ -118,7 +116,7 @@ body {
 }
 
 #rightContainer {
-/* 	position: relative; */
+	/* 	position: relative; */
 	width: 35%;
 	height: 370px;
 	float: right;
@@ -167,7 +165,7 @@ button:hover {
 
 #justify {
 	position: relative;
-	left: 40px;
+	left: 25px;
 }
 
 #sbutton {
@@ -248,4 +246,100 @@ button:hover {
 
 a {
 	color: #0c739a;
+}
+
+.hide {
+	display: none !important;
+}
+
+.form-control {
+	/*   display: block; */
+	width: 85%;
+	height: 15px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.right {
+	float: right;
+	margin-right: 50px;
+}
+
+.lable {
+	display: initial;
+	font-family: cursive;
+}
+
+.formbtn {
+	background: #0c739a;
+	background-image: -webkit-linear-gradient(top, #2980b9, #0c739a);
+	background-image: -moz-linear-gradient(top, #2980b9, #0c739a);
+	background-image: -ms-linear-gradient(top, #2980b9, #0c739a);
+	background-image: -o-linear-gradient(top, #2980b9, #0c739a);
+	background-image: linear-gradient(to bottom, #2980b9, #0c739a);
+	-webkit-border-radius: 8;
+	-moz-border-radius: 8;
+	border-radius: 8px;
+	/*   text-shadow: 4px 3px 5px #666666; */
+	font-family: Georgia;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 5px 17px 5px 20px;
+	text-decoration: none;
+	border: 1px;
+}
+
+.formbtn:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+}
+
+.select-style {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #ccc;
+	width: 193px;
+	border-radius: 3px;
+	overflow: hidden;
+	background-color: #fff;
+	height: 30px;
+	margin-right: 4px;
+}
+
+.select-style select {
+	padding: 5px 8px;
+	width: 130%;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-shadow: none;
+	background-color: transparent;
+	background-image: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.select-style select:focus {
+	outline: none;
+}
+
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: #000000;
+  /* color: #f5f5f5; */
 }

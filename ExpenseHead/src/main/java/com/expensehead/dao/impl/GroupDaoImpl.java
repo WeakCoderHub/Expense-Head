@@ -37,11 +37,9 @@ public class GroupDaoImpl implements GroupDao {
         Query q = session.createQuery("from Group where groupName='" + groupName + "'");
         List<Group> group = (List<Group>) q.list();
         List<User> users = null;
-        try {
+        if (!group.isEmpty()) {
             Group g = group.get(0);
             users = g.getUsers();
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.printStackTrace();
         }
         return users;
 

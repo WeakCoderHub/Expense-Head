@@ -1,47 +1,5 @@
   $(document).ready(function(){
-	  
-/*$("#pendingRequestTitle").click(function()
-	{
-	$("#pendingRequests").slideToggle();
-		
-	});
 
-$("#sendNotificatonsTitle").click(function()
-		{
-		$("#sendNotificatons").slideToggle();
-			
-		});
-
-$("#distributeExpensesTitle").click(function()
-		{
-		$("#distributeExpenses").slideToggle();
-		$("#userReturnDetails").slideToggle();	
-		});
-
-$("#totalAmountPool").click(function()
-		{
-		$("#userContributionDetails").slideToggle("fast");
-			
-		});
-
-$("#totalAmountReturn").click(function()
-		{
-		$("#userReturnDetails").slideToggle();
-			
-		});
-
-$("#totalAmountExpenses").click(function()
-		{
-		$("#expenseDetails").slideToggle();
-			
-		});
-
-$("#myContributionExpenses").click(function()
-		{
-		$("#userExpenseDetails").slideToggle();
-			
-		}); 
-*/
 $("#addMember").click(function(){
 	var i=($('#memberDetailBody').children().length)+1;
 	var rows ='<tr><td>'+i+'.</td><td><input type="text" class="input-box" id="memberName'+i+'" placeholder="Enter Name"></td><td><input type="text" class="input-box" id="memberEmailId'+i+'"	placeholder="Enter Email ID"></td><td><input type="text" class="input-box" id="contactNo'+i+'"	placeholder="Enter Contact No."></td><td><input type="radio" class="css-checkbox" name="isAdmin" id="radio'+i+'"><label for="radio'+i+'"class="css-label"></label></td> <td><a href="#" onclick="deleteRow(this)"><div class="minus-sign"></div></a></td></tr>';    		  

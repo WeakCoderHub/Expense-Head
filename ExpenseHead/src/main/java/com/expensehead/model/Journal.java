@@ -8,85 +8,84 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 //Pool Journal
 @Entity
 @Table(name = "journal", catalog = "expenseheaddb")
 public class Journal {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "recordId")
-	private Integer recordId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "recordId")
+    private Integer recordId;
 
-	@Column(name = "userId")
-	private int userId;
+    @Column(name = "userId")
+    private int userId;
 
-	@Column(name = "groupId")
-	private int groupId;
-	
-	/**
-	 * Return
-	 */
-	@Column(name = "credit")
-	private int credit;
+    @Column(name = "groupId")
+    private int groupId;
 
-	/**
-	 * Contribution
-	 */
-	@Column(name = "debit")
-	private int debit;
+    /**
+     * Return
+     */
+    @Column(name = "credit")
+    private int credit;
 
-	@Column(name = "recordDate")
-	private Date recordDate;
+    /**
+     * Contribution
+     */
+    @Column(name = "debit")
+    private int debit;
 
-	public Integer getRecordId() {
-		return recordId;
-	}
+    @Column(name = "recordDate")
+    private Date recordDate;
 
-	public void setRecordId(Integer recordId) {
-		this.recordId = recordId;
-	}
+    public Integer getRecordId() {
+        return recordId;
+    }
 
-	public int getUserId() {
-		return userId;
-	}
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public int getCredit() {
-		return credit;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public void setCredit(int credit) {
-		this.credit = credit;
-	}
+    public int getCredit() {
+        return credit;
+    }
 
-	public int getDebit() {
-		return debit;
-	}
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
 
-	public void setDebit(int debit) {
-		this.debit = debit;
-	}
+    public int getDebit() {
+        return debit;
+    }
 
-	public Date getRecordDate() {
-		return recordDate;
-	}
+    public void setDebit(int debit) {
+        this.debit = debit;
+    }
 
-	public void setRecordDate(Date recordDate) {
-		this.recordDate = recordDate;
-	}
+    public Date getRecordDate() {
+        return recordDate;
+    }
 
-	public int getGroupId() {
-		return groupId;
-	}
+    public void setRecordDate(Date recordDate) {
+        this.recordDate = recordDate;
+    }
 
-	public void setGroupId(int groupId) {
-		this.groupId = groupId;
-	}
-	
-	
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
 
 }

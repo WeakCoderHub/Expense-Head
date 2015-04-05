@@ -52,15 +52,20 @@ $(document)
 						
 						$.ajax({
 							type : 'POST',
-							url  : 'getStickyNote',
+							url  : 'dashboard/getStickyNote',
 							data :  date,
+							//dataType : "json",
 							contentType : "application/json; charset=utf-8",
 							success : function(data){
 								// Message is added in Sticky note.
-								$('#stickyNote').val(data);
+								if(data != ""){
+								  $('#stickyNote').val(data);
+								}else{
+									$('#stickyNote').val("This is a sticky note you can type and edit.");
+								}
 							},
-							error : function(){
-								$('#stickyNote').val("This is a sticky note you can type and edit.");
+							error : function(data){
+								window.location.href = "/ExpenseHead/firstpage";
 							}
 						});
 					});
@@ -85,7 +90,7 @@ $(document)
 										$
 												.ajax({
 													type : 'POST',
-													url : "saveNotes",
+													url : "dashboard/saveNotes",
 													data : jsonRequest,
 													contentType : "application/json; charset=utf-8",
 													dataType : "json",
@@ -97,6 +102,9 @@ $(document)
 													},
 													failure : function(data) {
 														alert("failure");
+													},
+													error : function(data){
+														window.location.href = "/ExpenseHead/firstpage";
 													}
 												});
 									});
@@ -111,7 +119,7 @@ $(document)
 						var jsonRequest = JSON.stringify(obj);
 						$.ajax({
 							type : "POST",
-							url : "addExpense",
+							url : "dashboard/addExpense",
 							data : jsonRequest,
 							contentType : "application/json; charset=utf-8",
 							dataType : "json",
@@ -120,6 +128,9 @@ $(document)
 							},
 							failure : function(data) {
 								alert("failure");
+							},
+							error : function(data){
+								window.location.href = "/ExpenseHead/firstpage";
 							}
 						});
 					});
@@ -140,7 +151,7 @@ $(document)
 										$
 												.ajax({
 													type : "POST",
-													url : "addContribution",
+													url : "dashboard/addContribution",
 													data : jsonRequest,
 													contentType : "application/json; charset=utf-8",
 													dataType : "json",
@@ -149,6 +160,9 @@ $(document)
 													},
 													failure : function(data) {
 														alert("failure");
+													},
+													error : function(data){
+														window.location.href = "/ExpenseHead/firstpage";
 													}
 												});
 									});
@@ -160,7 +174,7 @@ $(document)
 			var jsonRequest = JSON.stringify(obj);
 			$.ajax({
 				type : "POST",
-				url : "settleDues",
+				url : "dashboard/settleDues",
 				data : jsonRequest,
 				contentType : "application/json; charset=utf-8",
 				dataType : "json",
@@ -169,6 +183,9 @@ $(document)
 				},
 				failure : function(data) {
 					alert("failure");
+				},
+				error : function(data){
+					window.location.href = "/ExpenseHead/firstpage";
 				}
 			});
 		});
@@ -177,7 +194,7 @@ $(document)
 		$('#showDetails').click(function() {
 			$.ajax({
 						type : "GET",
-						url : "getExpenseDetails",
+						url : "dashboard/getExpenseDetails",
 						dataType : "text",
 						success : function(data) {
 							var obj = jQuery.parseJSON(data);
@@ -200,6 +217,9 @@ $(document)
 								$('#transactionDetails').html(html);
 								$('#myTable').dataTable();
 								$("#myTable_wrapper").addClass("myTable_wrapper_size");
+							},
+							error : function(data){
+								window.location.href = "/ExpenseHead/firstpage";
 							}
 				});
 					});
@@ -207,7 +227,7 @@ $(document)
 		$('#showJournal').click(function() {
 			$.ajax({
 						type : "GET",
-						url : "getJournalDetails",
+						url : "dashboard/getJournalDetails",
 						dataType : "text",
 						success : function(data) {
 							var obj = jQuery.parseJSON(data);
@@ -230,15 +250,19 @@ $(document)
 								$('#journalDetails').html(html);
 								$('#myTable1').dataTable();
 								$("#myTable1_wrapper").addClass("myTable_wrapper_size");
+							},
+							error : function(data){
+								window.location.href = "/ExpenseHead/firstpage";
 							}
 						});
 					});
 		
 		
 		function retrieveSummary(){
+			
 			$.ajax({
 						type : "GET",
-						url : "getSummary",
+						url : "dashboard/getSummary",
 						dataType : "text",
 						success : function(data) {
 							var obj = jQuery.parseJSON(data);

@@ -11,6 +11,6 @@ public interface TransactionDao {
 	public int savePoolExpense(Transactions transaction);
 	public int saveContribution(Journal journal,User user);
 	public int settleDues(Journal journal, User user);
-	public List<Transactions> getExpenseDetails();
-	public List<Journal> getJournalDetails();
+	public List<Transactions> getExpenseDetails(int groupId);
+	public List<Journal> getJournalDetails(int groupId);
 }

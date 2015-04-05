@@ -14,26 +14,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.expensehead.form.RegisterForm;
 import com.expensehead.service.GroupService;
 
-
 public abstract class RegisterGroupController {
 
-	@Autowired
-	protected GroupService groupService;
+    @Autowired
+    protected GroupService groupService;
 
-	@ResponseBody
-	@RequestMapping(value = { "/createGroup" })
-	public Map<String, String> createGroup(
-			@RequestBody final RegisterForm registerForm, Model model,
-			HttpServletRequest request) {
-		int groupId = groupService.registration(registerForm);
-		Map<String, String> response = new HashMap<String, String>();
-		response.put("forwardUrl", "dashBoard");
-		request.getSession().setAttribute("groupname",
-				registerForm.getGroupName());
-		request.getSession().setAttribute("groupId", groupId);
-		return response;
+    @ResponseBody
+    @RequestMapping(value = { "/createGroup" })
+    public Map<String, String> createGroup(@RequestBody final RegisterForm registerForm, Model model, HttpServletRequest request) {
+        int groupId = groupService.registration(registerForm);
+        Map<String, String> response = new HashMap<String, String>();
+        response.put("forwardUrl", "login");
+        request.getSession().setAttribute("groupname", registerForm.getGroupName());
+        request.getSession().setAttribute("groupId", groupId);
+        return response;
 
-	}
-
+    }
 
 }

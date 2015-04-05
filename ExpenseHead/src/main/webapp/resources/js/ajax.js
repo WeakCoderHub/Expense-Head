@@ -11,6 +11,7 @@ $(document)
 													data : dataString,
 													dataType : "text",
 													success : function(data) {
+														$('#ClearCache').val("");
 														var obj = jQuery
 																.parseJSON(data);
 														var len = obj.length;
@@ -26,7 +27,12 @@ $(document)
 															$('#userNames')
 																	.html(html);
 														}
+														if(len > 0){
+														$('#usernameempty').addClass("hide");
+														$('#usernamelist').removeClass( "hide" );
+														}
 													}
+										
 												});
 									});
 
@@ -57,3 +63,11 @@ $(document)
 									});
 
 				});
+
+function populateUserName(){
+	if($("#ClearCache").val() == ""){
+		$("#setUserName").val($("#userNames").val());
+	}else{
+		$("#setUserName").val($("#ClearCache").val());
+	}
+}

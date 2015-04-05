@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" 
-	xmlns:lang="http://www.springframework.org/schema/lang"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:task="http://www.springframework.org/schema/task"
 
 	xsi:schemaLocation="
@@ -22,26 +19,29 @@
     http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 	<context:component-scan base-package="com.expensehead.controller" />
-	<context:component-scan base-package="com.expensehead.service"/>
-	<context:component-scan base-package="com.expensehead.dao"/>
-	
+	<context:component-scan base-package="com.expensehead.service" />
+	<context:component-scan base-package="com.expensehead.dao" />
+
 	<context:annotation-config />
 	<mvc:annotation-driven />
-	
+
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	
-    
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-    	p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
-    
-     <bean id="propertyConfigurer" 	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 		p:location="/WEB-INF/properties/jdbc.properties" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
 		p:url="${jdbc.databaseurl}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
 
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation">
 			<value>/WEB-INF/hibernate.cfg.xml</value>
@@ -57,17 +57,28 @@
 			</props>
 		</property>
 	</bean>
-	
-	<tx:annotation-driven/>
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-	<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-     
-     <!--< bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="hibernateTransactionManager">  
- <property name="sessionFactory" ref="sessionFactory"></property>  
-  </bean> -->
 
-<import resource="staticListService.xml" />
+	<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--< bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" 
+		id="hibernateTransactionManager"> <property name="sessionFactory" ref="sessionFactory"></property> 
+		</bean> -->
+
+	<!-- Configuring interceptors based on URI -->
+	<mvc:interceptors>
+<!-- 		<bean class="com.expensehead.interceptor.AuthenticationInterceptor" /> -->
+	
+		<mvc:interceptor>
+			<mvc:mapping path="/dashboard/*" />
+			<bean class="com.expensehead.interceptor.AuthenticationInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<import resource="staticListService.xml" />
 
 </beans>
 

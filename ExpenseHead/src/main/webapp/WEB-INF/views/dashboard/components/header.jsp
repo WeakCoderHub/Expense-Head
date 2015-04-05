@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <div id="header"
 			class="header navbar navbar-default navbar-inverse">
 			<div class="container-fluid" style="padding-left:0%;">
@@ -72,7 +74,7 @@
 							</li>
 							<li class="divider">#</li>
 							<li>
-								<a href="#">Log Out</a>
+								<a href="<c:url value="/logout" />">Log Out</a>
 							</li>
 						</ul>
 					</li>

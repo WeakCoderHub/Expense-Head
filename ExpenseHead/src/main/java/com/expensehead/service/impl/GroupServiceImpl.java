@@ -48,10 +48,11 @@ public class GroupServiceImpl implements GroupService {
     public Set<String> getUsersList(String groupName) {
         List<User> users = groupDao.fetchGroup(groupName);
         Set<String> userSet = new HashSet<String>();
+        if(null != users){
         for (User user : users) {
             userSet.add(user.getUserName());
         }
-
+        }
         return userSet;
     }
 
