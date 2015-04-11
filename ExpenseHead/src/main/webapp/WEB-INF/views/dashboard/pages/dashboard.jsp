@@ -52,7 +52,7 @@
 	<input type="hidden" id="selectedDate" />
 	<div style="width: 100%;" class="left-section">
 		<div style="width: 0px">
-			<div class="span5 col-md-5" style="min-height: 640px;"
+			<div class="span5 col-md-5" style="min-height: 640px;background: #222;margin-top: -1px;height:46em;"
 				id="sandbox-container">
 				<div id="dateSelector" style="margin-top: 25px; margin-bottom: 5px;"></div>
 				<p class="redText">Your Message Will be Delete after 30 days.</p>
@@ -66,7 +66,7 @@
 			<div id="transactionDetails"></div>
 			<div id="journalDetails"></div>
 		</div>
-		<div style="float: right">
+		<div style="float: right;width: 17.5%;">
 			<jsp:include page="/WEB-INF/views/dashboard/components/summary.jsp"></jsp:include>
 		</div>
 	</div>

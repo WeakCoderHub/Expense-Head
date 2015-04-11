@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div id="header"
-			class="header navbar navbar-default navbar-inverse">
+			class="header navbar navbar-default navbar-inverse" style="border-radius:0px;">
 			<div class="container-fluid" style="padding-left:0%;">
 			
 			<ul class="nav navbar-nav"><li> <img src="resources/images/logo.PNG"  style="float: left;height: 84px; padding-left:30px;"/></li></ul>

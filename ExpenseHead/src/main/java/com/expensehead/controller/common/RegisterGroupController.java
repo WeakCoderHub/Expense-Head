@@ -24,7 +24,7 @@ public abstract class RegisterGroupController {
     public Map<String, String> createGroup(@RequestBody final RegisterForm registerForm, Model model, HttpServletRequest request) {
         int groupId = groupService.registration(registerForm);
         Map<String, String> response = new HashMap<String, String>();
-        response.put("forwardUrl", "login");
+        response.put("forwardUrl", "");
         request.getSession().setAttribute("groupname", registerForm.getGroupName());
         request.getSession().setAttribute("groupId", groupId);
         return response;
