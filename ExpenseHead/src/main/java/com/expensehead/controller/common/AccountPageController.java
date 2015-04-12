@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.expensehead.constants.StaticListService;
 import com.expensehead.service.GroupService;
 import com.expensehead.service.LoginService;
 
@@ -21,6 +22,9 @@ public abstract class AccountPageController {
 
     @Autowired
     protected LoginService loginService;
+    
+    @Autowired 
+    protected StaticListService staticListService;
 
     @ResponseBody
     @RequestMapping(value = { "/getUsers" }, method = RequestMethod.GET, produces = "application/json")
@@ -43,4 +47,5 @@ public abstract class AccountPageController {
         return "redirect:/";
     }
 
+    
 }

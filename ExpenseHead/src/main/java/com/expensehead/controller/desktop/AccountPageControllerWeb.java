@@ -22,11 +22,11 @@ import com.expensehead.service.UtilityServices;
 @Controller
 public class AccountPageControllerWeb extends AccountPageController {
 
-    private final String DASHBOAD_PAGE = "redirect:dashBoard";
+    private final String DASHBOAD_PAGE = "dashboard/pages/dashboard";
     private final String LOGIN_PAGE = "login";
     @Autowired
     private UtilityServices utilityServices;
-
+    
     @RequestMapping(value = { "/", "firstpage" }, method = RequestMethod.GET)
     public String getHomePage(Model model) {
         model.addAttribute("loginForm", new LoginForm());
@@ -59,6 +59,7 @@ public class AccountPageControllerWeb extends AccountPageController {
             }
         }
         model.addAttribute("eventDates", eventDates);
+        model.addAttribute("expenseTypes", staticListService.getExpenseTypes());
         return redirect;
     }
 }
