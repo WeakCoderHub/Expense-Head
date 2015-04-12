@@ -7,15 +7,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.expensehead.constants.ExpenseType;
 import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
+import com.expensehead.form.SearchCriteria;
 import com.expensehead.form.SettleDuesForm;
 import com.expensehead.model.Journal;
 import com.expensehead.model.Transactions;
@@ -25,16 +24,7 @@ import com.expensehead.service.TransactionService;
 public abstract class ExpenseController {
 
     @Autowired
-    ExpenseType expenseType;
-    @Autowired
     TransactionService transaction;
-
-    @RequestMapping(value = { "/expensetypes" }, method = RequestMethod.GET)
-    @ResponseBody
-    public List<String> getExpenseType(Model model) {
-        List<String> list = expenseType.getCommonExpenseType();
-        return list;
-    }
 
     @RequestMapping(value = { "/addExpense" }, method = RequestMethod.POST)
     @ResponseBody
@@ -75,10 +65,10 @@ public abstract class ExpenseController {
 
     @RequestMapping(value = { "/getExpenseDetails" }, method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Transactions> getExpenseDetails(HttpServletRequest request) {
+    public Map<String, Transactions> getExpenseDetails(@RequestBody final SearchCriteria searchCriteria, HttpServletRequest request) {
 
         Map<String, Transactions> response = new HashMap<String, Transactions>();
-        List<Transactions> result = transaction.getExpenseDetails(request);
+        List<Transactions> result = transaction.getExpenseDetails(searchCriteria,request);
         int i = 0;
         for (Transactions transaction : result) {
             response.put(String.valueOf(++i), transaction);
@@ -88,10 +78,10 @@ public abstract class ExpenseController {
 
     @RequestMapping(value = { "/getJournalDetails" }, method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Journal> getJournalDetails(HttpServletRequest request) {
+    public Map<String, Journal> getJournalDetails(@RequestBody final SearchCriteria searchCriteria,HttpServletRequest request) {
 
         Map<String, Journal> response = new HashMap<String, Journal>();
-        List<Journal> result = transaction.getJournalDetails(request);
+        List<Journal> result = transaction.getJournalDetails(searchCriteria, request);
         int i = 0;
         for (Journal journal : result) {
             response.put(String.valueOf(++i), journal);

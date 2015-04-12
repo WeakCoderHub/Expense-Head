@@ -14,6 +14,7 @@ import com.expensehead.dao.TransactionDao;
 import com.expensehead.dao.UserDao;
 import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
+import com.expensehead.form.SearchCriteria;
 import com.expensehead.form.SettleDuesForm;
 import com.expensehead.model.Journal;
 import com.expensehead.model.Transactions;
@@ -76,7 +77,7 @@ public class TransactionServiceImp implements TransactionService {
 
     @Override
     @Transactional
-    public List<Transactions> getExpenseDetails(HttpServletRequest request) {
+    public List<Transactions> getExpenseDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
         List<Transactions> transactions = new ArrayList<Transactions>();
         transactions = transactionDao.getExpenseDetails(groupId);
@@ -85,7 +86,7 @@ public class TransactionServiceImp implements TransactionService {
 
     @Override
     @Transactional
-    public List<Journal> getJournalDetails(HttpServletRequest request) {
+    public List<Journal> getJournalDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
         List<Journal> journal = new ArrayList<Journal>();
         journal = transactionDao.getJournalDetails(groupId);
