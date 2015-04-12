@@ -86,4 +86,3 @@
 	</form>
 
 </body>
-<script src="../js/register.js"></script>

@@ -16,8 +16,6 @@
 
 .myTable_wrapper_size {
 	padding-top: 50px;
-	/* 	padding-right: 380px; */
-	/* 	padding-left: 95px; */
 	width: 100%;
 }
 </style>
@@ -30,10 +28,12 @@
 	type="text/css">
 <link href="resources/css/tables/jquery.dataTables.min.css"
 	rel="stylesheet">
-<link href="/resources/css/local.css" rel="stylesheet">
+<link href="resources/css/bootstrap-theme.min.css" rel="stylesheet">
+
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/bootstrap-checkbox.min.js"></script>
 <script src="resources/js/tables/jquery.dataTables.min.js"></script>
 <script src="resources/js/datepicker/bootstrap-datepicker.js"></script>
 
@@ -77,17 +77,14 @@
 
 	</div>
 
-
-
 </body>
+
 <script type="text/javascript">
 	var eventDates = {};
 	<c:forEach var="event" items="${eventDates}">
 	eventDates['${event}'] = '${event}';
 	</c:forEach>
+	
 </script>
 <script src="resources/js/dashboard/js_dashboard.js"></script>
-<script type="text/javascript">
-	retrieveSummary();
-</script>
 </html>

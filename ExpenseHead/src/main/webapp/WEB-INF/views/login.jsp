@@ -9,8 +9,6 @@
 <link rel="ICON" href="resources/images/titlelogo.png" type="image/ico/">
 
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/sliding/demo.css" />
-<link rel="stylesheet" type="text/css"
 	href="resources/css/sliding/jPushMenu.css" />
 
 <link href="resources/css/carousel/js-image-slider.css" rel="stylesheet"

@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-				<h3 id="myModalLabel">Settle Dues</h3>
+				<h3 id="myModalLabel">Settle Dues <span class="glyphicon glyphicon-info-sign" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter amount received from pool." aria-hidden="true"></span></h3>
 			</div>
 			
 			<div class="modal-body">

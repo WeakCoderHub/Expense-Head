@@ -192,9 +192,17 @@ $(document)
 		
 		
 		$('#showDetails').click(function() {
+			var obj = {};
+			obj.fromDate = $("#fromDate").val();
+			obj.toDate = $("#toDate").val();
+			obj.user = $("#userList").val();
+			obj.expenseType = $("#expenseCategory").val();
+			var jsonRequest = JSON.stringify(obj);
 			$.ajax({
 						type : "GET",
 						url : "dashboard/getExpenseDetails",
+						data : jsonRequest,
+						contentType : "application/json; charset=utf-8",
 						dataType : "text",
 						success : function(data) {
 							var obj = jQuery.parseJSON(data);
@@ -267,8 +275,8 @@ $(document)
 						success : function(data) {
 							var obj = jQuery.parseJSON(data);
 							var len = Object.keys(obj.memberSummary).length;
-
 							var html = '<table class="table table-hover">';
+							var html2='<option value="All">All</option>';
 							html+='<thead><tr><th>Member</th><th>Payable</th><th>Payback</th></thead><tbody>';  
 					     
 							for (var i = 0; i < len; i++) {
@@ -277,6 +285,7 @@ $(document)
 						             +'<td>'+obj.memberSummary[i].payable+'</td>'  
 						             +'<td>'+obj.memberSummary[i].payback+'</td>' 
 						             +'</tr>';
+								html2 += '<option value='+obj.memberSummary[i].memberName+'>'+obj.memberSummary[i].memberName+'</option>'; 
 								
 							}
 								html += '</tbody></table>';
@@ -284,12 +293,14 @@ $(document)
 								$('#totalDepositsSummary').html(obj.totalDeposits);
 								$('#balanceSummary').html(obj.balance);
 								$('#expensesSummary').html(obj.expenses);
+								$('#userList').html(html2);
 							}
 						});
 					} 
 		
 		retrieveSummary();
-		
+		$('#pool').checkboxpicker();
+		$('[data-toggle="popover"]').popover();
 	});
 	 
 	

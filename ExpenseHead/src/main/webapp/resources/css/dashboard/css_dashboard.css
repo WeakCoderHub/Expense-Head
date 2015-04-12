@@ -91,3 +91,7 @@ body {
 #dashboad_logo img{
 	height: 84px;
 }
+
+.pool .btn{
+	font-size: 10px;
+}

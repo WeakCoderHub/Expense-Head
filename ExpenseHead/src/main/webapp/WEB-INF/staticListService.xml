@@ -8,25 +8,21 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd" >
 
-<util:list id="commonExpenseTypes" list-class="java.util.LinkedList">
-  <value>vegetables</value>
-  <value>grocery</value>
-  <value>dariry product</value>
-  <value>Party</value>
-</util:list>
+<util:map id="commonExpenseTypes" map-class="java.util.HashMap">
+  <entry key="Vegetables" value="Vegetables"></entry>
+  <entry key="Grocery" value="Grocery"></entry>
+  <entry key="Dairy" value="Dairy Products"></entry>
+  <entry key="Party" value="Party"></entry>
+  <entry key="Electricity" value="Electricity Bill"></entry>
+  <entry key="HouseRent" value="House Rent"></entry>
+  <entry key="Maintainence" value="Maintainence"></entry>
+  <entry key="Gas" value="Gas"></entry>
+  <entry key="Cook" value="Cook"></entry>
+    <entry key="Others" value="Others"></entry>
+</util:map>
 
-<util:list id="adminExpenseType" list-class="java.util.LinkedList">
-   <value>Electricity Bill</value>
-   <value>House Rent</value>
-   <value>Maintaince</value>
-   <value>Gas</value>
-   <value>Cook</value>
-   <value>Others</value>
-</util:list>
-
-<bean id="expenseType" class="com.expensehead.constants.ExpenseType">
-    <property name="commonExpenseType" ref="commonExpenseTypes" />
-    <property name="adminExpenseType" ref="adminExpenseType" />
+<bean id="staticListService" class="com.expensehead.constants.StaticListService">
+<property name="expenseTypes" ref="commonExpenseTypes"></property>
 </bean>
 
 </beans>
