@@ -13,7 +13,7 @@ $(document)
 						multidate : false,
 						daysOfWeekDisabled : "0",
 						todayHighlight : true,
-						calendarWeeks : true,
+						
 						
 						beforeShowDay : function(date) {
 							var month = date.getMonth()+1;
@@ -209,12 +209,12 @@ $(document)
 							var len = Object.keys(obj).length;
 
 							var html = '<table id="myTable" class="table table-striped table-bordered">';
-							html+='<thead><tr><th>S.No.</th><th>User Id</th><th>Amount</th><th>Entry Date</th><th>Description</th></tr></thead><tbody>';  
+							html+='<thead><tr><th>S.No.</th><th>User Name</th><th>Amount</th><th>Entry Date</th><th>Description</th></tr></thead><tbody>';  
 					     
 							for (var i = 1; i <= len; i++) {
 								html += '<tr>'
 									 +'<td>'+i+'</td>'  
-						             +'<td>'+obj[i].userId+'</td>'  
+						             +'<td>'+obj[i].username+'</td>'  
 						             +'<td>'+obj[i].amount+'</td>'  
 						             +'<td>'+obj[i].entryDate+'</td>'  
 						             +'<td>'+obj[i].discription+'</td>' 
@@ -242,12 +242,12 @@ $(document)
 							var len = Object.keys(obj).length;
 
 							var html = '<table id="myTable1" class="table table-striped table-bordered">';
-							html+='<thead><tr><th>S.No.</th><th>User Id</th><th>Credit</th><th>Debit</th><th>Record Date</th></tr></thead><tbody>';  
+							html+='<thead><tr><th>S.No.</th><th>User Name</th><th>Credit</th><th>Debit</th><th>Record Date</th></tr></thead><tbody>';  
 					     
 							for (var i = 1; i <= len; i++) {
 								html += '<tr>'
 									 +'<td>'+i+'</td>'  
-						             +'<td>'+obj[i].userId+'</td>'  
+						             +'<td>'+obj[i].username+'</td>'  
 						             +'<td>'+obj[i].credit+'</td>'  
 						             +'<td>'+obj[i].debit+'</td>'  
 						             +'<td>'+obj[i].recordDate+'</td>' 

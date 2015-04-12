@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,8 +15,10 @@ import com.expensehead.dao.TransactionDao;
 import com.expensehead.dao.UserDao;
 import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
+import com.expensehead.form.JournalData;
 import com.expensehead.form.SearchCriteria;
 import com.expensehead.form.SettleDuesForm;
+import com.expensehead.form.TransactionData;
 import com.expensehead.model.Journal;
 import com.expensehead.model.Transactions;
 import com.expensehead.model.User;
@@ -37,6 +40,7 @@ public class TransactionServiceImp implements TransactionService {
         int result;
         Transactions transaction = populateTransaction(expenseForm, request);
         User user = userDao.getUser(String.valueOf(transaction.getUserId()));
+        transaction.setUsername(user.getUserName());
         if ("false".equalsIgnoreCase(expenseForm.getPool()))
             result = transactionDao.saveExpense(transaction, user);
         else
@@ -52,6 +56,7 @@ public class TransactionServiceImp implements TransactionService {
         int userId = ExpenseUtility.getUserIdFromSession(request);
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
         User user = userDao.getUser(String.valueOf(userId));
+        journal.setUsername(user.getUserName());
         journal.setUserId(userId);
         journal.setGroupId(groupId);
         journal.setRecordDate(new Date());
@@ -77,20 +82,33 @@ public class TransactionServiceImp implements TransactionService {
 
     @Override
     @Transactional
-    public List<Transactions> getExpenseDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
+    public List<TransactionData> getExpenseDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
+        List<TransactionData> transactionDatasList = new ArrayList<>();
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
         List<Transactions> transactions = new ArrayList<Transactions>();
         transactions = transactionDao.getExpenseDetails(groupId);
-        return transactions;
+        for(Transactions transactionsModel : transactions){
+            TransactionData transactionData = new TransactionData();
+            BeanUtils.copyProperties(transactionsModel, transactionData);
+            transactionDatasList.add(transactionData);
+        }
+        return transactionDatasList;
     }
 
     @Override
     @Transactional
-    public List<Journal> getJournalDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
+    public List<JournalData> getJournalDetails(SearchCriteria searchCriteria,HttpServletRequest request) {
+        List<JournalData> journalDataList = new ArrayList<JournalData>();
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
+        
         List<Journal> journal = new ArrayList<Journal>();
         journal = transactionDao.getJournalDetails(groupId);
-        return journal;
+        for(Journal journalModel : journal){
+            JournalData journalData = new JournalData();
+            BeanUtils.copyProperties(journalModel,journalData);
+            journalDataList.add(journalData);
+        }
+        return journalDataList;
     }
 
     public Transactions populateTransaction(AddExpenseForm expenseForm, HttpServletRequest request) {

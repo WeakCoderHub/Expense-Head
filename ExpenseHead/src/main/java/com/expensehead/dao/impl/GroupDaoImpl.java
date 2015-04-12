@@ -86,4 +86,19 @@ public class GroupDaoImpl implements GroupDao {
         return result;
     }
 
+    @Override
+    public int getTotalExpense(int groupId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query q = session.createQuery("select sum(amount) from Transactions where groupId = :groupId");
+        q.setParameter("groupId", groupId);
+        List result = q.list();
+        long totalExpense = 0;
+        if(!result.isEmpty()){
+            totalExpense =  (long) result.get(0);
+        }
+        return (int)totalExpense;
+    }
+    
+    
+
 }

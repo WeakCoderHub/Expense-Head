@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.expensehead.form.AddContributionForm;
 import com.expensehead.form.AddExpenseForm;
+import com.expensehead.form.JournalData;
 import com.expensehead.form.SearchCriteria;
 import com.expensehead.form.SettleDuesForm;
-import com.expensehead.model.Journal;
-import com.expensehead.model.Transactions;
+import com.expensehead.form.TransactionData;
 import com.expensehead.service.TransactionService;
 
 @RequestMapping("/dashboard")
@@ -65,12 +65,12 @@ public abstract class ExpenseController {
 
     @RequestMapping(value = { "/getExpenseDetails" }, method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Transactions> getExpenseDetails(@RequestBody final SearchCriteria searchCriteria, HttpServletRequest request) {
+    public Map<String, TransactionData> getExpenseDetails(@RequestBody final SearchCriteria searchCriteria, HttpServletRequest request) {
 
-        Map<String, Transactions> response = new HashMap<String, Transactions>();
-        List<Transactions> result = transaction.getExpenseDetails(searchCriteria,request);
+        Map<String, TransactionData> response = new HashMap<String, TransactionData>();
+        List<TransactionData> result = transaction.getExpenseDetails(searchCriteria, request);
         int i = 0;
-        for (Transactions transaction : result) {
+        for (TransactionData transaction : result) {
             response.put(String.valueOf(++i), transaction);
         }
         return response;
@@ -78,12 +78,12 @@ public abstract class ExpenseController {
 
     @RequestMapping(value = { "/getJournalDetails" }, method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Journal> getJournalDetails(@RequestBody final SearchCriteria searchCriteria,HttpServletRequest request) {
+    public Map<String, JournalData> getJournalDetails(@RequestBody final SearchCriteria searchCriteria, HttpServletRequest request) {
 
-        Map<String, Journal> response = new HashMap<String, Journal>();
-        List<Journal> result = transaction.getJournalDetails(searchCriteria, request);
+        Map<String, JournalData> response = new HashMap<String, JournalData>();
+        List<JournalData> result = transaction.getJournalDetails(searchCriteria, request);
         int i = 0;
-        for (Journal journal : result) {
+        for (JournalData journal : result) {
             response.put(String.valueOf(++i), journal);
         }
         return response;

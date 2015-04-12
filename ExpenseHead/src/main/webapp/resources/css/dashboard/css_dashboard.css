@@ -14,8 +14,27 @@
 }
 
 #sandbox-container .table-condensed {
-	background-color: rgb(252, 244, 244);
+	background-color: rgb(89, 89, 89);
 	border-radius: 10px;
+	  color: wheat;
+}
+.datepicker table tr td.today{
+	  color: #000000;
+	  background-color: #FFFFFF !important;
+	  
+}
+
+.datepicker table tr td.disabled.day,
+.datepicker table tr td.disabled.day:HOVER{
+	color: wheat !important;
+}
+
+.datepicker table tr td.old.disabled.day,
+.datepicker table tr td.old.disabled.day:HOVER,
+.datepicker table tr td.new.disabled.day,
+.datepicker table tr td.new.disabled.day:HOVER
+{
+	color: #999999 !important;
 }
 
 .col-md-5 {
@@ -79,13 +98,14 @@
 }
 
 body {
-	background: url(http://subtlepatterns.com/patterns/little_pluses.png)
-		#cacaca;
+	background-image: url(../../images/bk.PNG);
+	/* background: url(http://subtlepatterns.com/patterns/little_pluses.png)
+		#cacaca; */
 	/* 	margin: 30px; */
 }
 
-.redText {
-	color: red;
+.wheatColor {
+	color: wheat;
 }
 
 #dashboad_logo img{

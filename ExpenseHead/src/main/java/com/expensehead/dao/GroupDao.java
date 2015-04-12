@@ -19,5 +19,11 @@ public interface GroupDao {
 	 * @return Remaining amount in group pool .
 	 */
 	public long getCurrentAmount(String groupId);
+
+/**
+ * @param groupId
+ * @return returns the total expenses of current group
+ */
+public int getTotalExpense(int groupId);
 	
 }

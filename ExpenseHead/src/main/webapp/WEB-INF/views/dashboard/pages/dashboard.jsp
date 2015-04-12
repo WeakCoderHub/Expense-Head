@@ -55,14 +55,14 @@
 			<div class="span5 col-md-5" style="min-height: 640px;background: #222;margin-top: -1px;height:46em;"
 				id="sandbox-container">
 				<div id="dateSelector" style="margin-top: 25px; margin-bottom: 5px;"></div>
-				<p class="redText">Your Message Will be Delete after 30 days.</p>
+				<p class="wheatColor">Your Message Will be Delete after 30 days.</p>
 				<textarea id="stickyNote">This is a sticky note you can type and edit.
 				</textarea>
 				<button id="saveStickyNotes" class="btn btn-default">Save
 					Notes</button>
 			</div>
 		</div>
-		<div style="width: 60%; float: left;">
+		<div style="width: 63%; float: left;margin-left: 1.3%;">
 			<div id="transactionDetails"></div>
 			<div id="journalDetails"></div>
 		</div>

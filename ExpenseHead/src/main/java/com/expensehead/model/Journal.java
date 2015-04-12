@@ -25,6 +25,24 @@ public class Journal {
     @Column(name = "groupId")
     private int groupId;
 
+    @Column(name = "username")
+    private String username;
+    
+    
+    /**
+     * @return username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     /**
      * Return
      */

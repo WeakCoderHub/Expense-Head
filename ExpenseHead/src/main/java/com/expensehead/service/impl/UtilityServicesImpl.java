@@ -102,15 +102,16 @@ public class UtilityServicesImpl implements UtilityServices {
     public GroupTransactionSummary getSummary(HttpServletRequest request) {
         int groupId = ExpenseUtility.getGroupIdFromSession(request);
         Group group = groupDao.getGroup(String.valueOf(groupId));
-        return createGroupTransactionSummary(group);
+        int totalExpense = groupDao.getTotalExpense(groupId);
+        return createGroupTransactionSummary(group,totalExpense);
     }
 
-    private GroupTransactionSummary createGroupTransactionSummary(Group group) {
+    private GroupTransactionSummary createGroupTransactionSummary(Group group,int totalExpense) {
         GroupTransactionSummary groupTransactionSummary = new GroupTransactionSummary();
         List<MemberSummary> listOfMembers = new ArrayList<MemberSummary>();
         groupTransactionSummary.setTotalDeposits(group.getTotalDeposits());
         groupTransactionSummary.setBalance(group.getDepositsLeft());
-        groupTransactionSummary.setExpenses(1000);
+        groupTransactionSummary.setExpenses(totalExpense);
 
         List<User> users = group.getUsers();
         for (User user : users) {
